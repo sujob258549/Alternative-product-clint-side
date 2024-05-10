@@ -19,7 +19,8 @@ const Header = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                   <h2 className="text-4xl font-bold">All <span className="text-[#3F73D3]">Disition</span></h2>
+                   {/* <h2 className="kurali-font text-4xl font-bold">All <span className="text-[#3F73D3]">Disition</span></h2> */}
+                   <img className="h-16" src="https://i.ibb.co/p3Z6Tr4/altranatiove-removebg-preview.png" alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

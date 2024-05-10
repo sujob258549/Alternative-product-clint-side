@@ -1,13 +1,15 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Roots = () => {
     return (
-        <div>
+        <div className="minh">
            <div className="border-b">
            <Header></Header>
            </div>
             <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };

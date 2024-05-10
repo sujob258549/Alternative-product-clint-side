@@ -1,4 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Kurale&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    font-family: "Raleway", sans-serif;
+}
 
+.kurali-font{
+    font-family: "Kurale", serif;
+}
+
+.palayfire-font{
+    font-family: "Playfair Display SC", serif;
+}
 
 
 @tailwind base;
