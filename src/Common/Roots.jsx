@@ -4,7 +4,9 @@ import Header from "./Header";
 const Roots = () => {
     return (
         <div>
-            <Header></Header>
+           <div className="border-b">
+           <Header></Header>
+           </div>
             <Outlet></Outlet>
         </div>
     );

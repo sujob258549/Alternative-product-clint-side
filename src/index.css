@@ -4,3 +4,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.buttons-color{
+ background-color: #fc4100;
+ color: white;
+ font-weight: 600;
+ font-size: 18px;
+ border: 1px solid black;
+}
+.buttons-color:hover{
+ background-color: #995325d3;
+ 
+}
