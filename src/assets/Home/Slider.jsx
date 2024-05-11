@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+// add auto play cod
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 // import required modules
@@ -18,6 +19,8 @@ export default function Slider() {
         pagination={{
           dynamicBullets: true,
         }}
+
+        // add auto aplay cod
         autoplay={{
             delay: 4000,
             disableOnInteraction: false,
