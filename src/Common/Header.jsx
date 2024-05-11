@@ -68,8 +68,10 @@ const Header = () => {
                                         </div>
                                     </div>
                                     <ul tabIndex={0} className="menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                        <li className=""><Link className="flex items-center text-xl font-semibold"><CgProfile className="mr-2"></CgProfile> Profile</Link></li>
-                                        
+                                        <li 
+                                        className=""><Link to={'/profile'} className="flex items-center text-xl font-semibold"><CgProfile className="mr-2"></CgProfile> Profile</Link>
+                                        </li>
+
                                     </ul>
                                 </div>
                                 <button onClick={handelsingnout} className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]"
