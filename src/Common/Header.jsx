@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
     return (
         <div className="container mx-auto py-5">
@@ -19,8 +21,8 @@ const Header = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                   {/* <h2 className="kurali-font text-4xl font-bold">All <span className="text-[#3F73D3]">Disition</span></h2> */}
-                   <img className="h-16" src="https://i.ibb.co/p3Z6Tr4/altranatiove-removebg-preview.png" alt="" />
+                    {/* <h2 className="kurali-font text-4xl font-bold">All <span className="text-[#3F73D3]">Disition</span></h2> */}
+                    <img className="h-16" src="https://i.ibb.co/p3Z6Tr4/altranatiove-removebg-preview.png" alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -55,7 +57,14 @@ const Header = () => {
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-outline btn-warning text-xl font-semibold">Button</a>
+                    <Link to={'/login'} className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]"
+                        href="#">
+                        Sign in 
+                    </Link>
+                    <Link to={'/signup'} className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]"
+                        href="#">
+                        Sign up 
+                    </Link>
                 </div>
             </div>
         </div>
