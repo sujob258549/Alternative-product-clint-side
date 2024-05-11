@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaAddressBook, FaEye, FaEyeSlash } from "react-icons/fa6";
-import { MdAttachEmail, MdInsertPhoto } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { MdInsertPhoto } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { CreatAuthContext } from "../Firebase/Authprovider";
+import Swal from "sweetalert2";
 
 
 const Signup = () => {
+    const { creatUser, upadateprofile, user, setuser } = useContext(CreatAuthContext)
+    const navigete = useNavigate()
     const [shoandHideIcone, setShoandHideIcone] = useState(false);
     const handelRegister = e => {
         e.preventDefault();
@@ -13,11 +17,29 @@ const Signup = () => {
         const email = e.target.email.value;
         const passwird = e.target.passwird.value;
         const conframpassword = e.target.conframpassword.value;
-        console.log(name, photourl, email, passwird, conframpassword);
+        const users = { name, photourl, email, passwird, conframpassword };
+        console.log(users);
+        creatUser(email, passwird)
+            .then(result => {
+                upadateprofile(name, photourl)
+                setuser({ ...user, photoURL: photourl, displayName: name })
+                console.log(result)
+                Swal.fire({
+                    icon: "success",
+                    title: "Success...",
+                    text: "Creat a User!",
+                    footer: '<a href="#">Creat User?</a>'
+                });
+                navigete('/login')
+            })
+            .catch(error => {
+                console.error(error.message)
+            })
+
     }
     return (
         <div>
-            <section className="bg-cover bg-center bg-no-repeat" style={{background:"url('https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg')" , backgroundRepeat:'no-repeat' , backgroundSize:'cover', backgroundPosition: 'center'}}>
+            <section className="bg-cover bg-center bg-no-repeat" style={{ background: "url('https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="container  items-center justify-center min-h-screen px-6 mx-auto">
                     <div className="min-h-screen  py-6  -col justify-center sm:py-12">
                         <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -52,7 +74,7 @@ const Signup = () => {
                                     </div>
                                     <div className="relative flex items-center mt-8">
                                         <span className="absolute">
-                                        <MdInsertPhoto   className="ml-3 text-2xl"></MdInsertPhoto >
+                                            <MdInsertPhoto className="ml-3 text-2xl"></MdInsertPhoto >
                                         </span>
 
                                         <input name="photourl" type="text" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Enter Your Photo Url" />
@@ -85,7 +107,7 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="passwird"  className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" type={shoandHideIcone ? 'text' : 'password'} />
+                                        <input name="passwird" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" type={shoandHideIcone ? 'text' : 'password'} />
                                         <div className="absolute right-5 bottom-4" onClick={() => setShoandHideIcone(!shoandHideIcone)}>
                                             {
                                                 shoandHideIcone ? <FaEyeSlash className="text-xl"></FaEyeSlash> : <FaEye className="text-xl"></FaEye>
@@ -100,13 +122,13 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="conframpassword" type={shoandHideIcone ? 'text':"password"} className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" />
+                                        <input name="conframpassword" type={shoandHideIcone ? 'text' : "password"} className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" />
 
-                                       <div className="absolute  right-5" onClick={()=>setShoandHideIcone(!shoandHideIcone)}>
+                                        <div className="absolute  right-5" onClick={() => setShoandHideIcone(!shoandHideIcone)}>
                                             {
-                                                shoandHideIcone ?  <FaEyeSlash className="text-xl"></FaEyeSlash> : <FaEye className="text-xl"></FaEye>
+                                                shoandHideIcone ? <FaEyeSlash className="text-xl"></FaEyeSlash> : <FaEye className="text-xl"></FaEye>
                                             }
-                                       </div>
+                                        </div>
 
                                     </div>
 
