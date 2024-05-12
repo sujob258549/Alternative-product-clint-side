@@ -112,7 +112,7 @@ const AddProduct = () => {
 
                                 </div>
                             </div>
-                            <button className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02] w-full mt-10 ">Add Query</button>
+                            <button className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02] w-full mt-5 md:mt-10 ">Add Query</button>
                         </form>
                     </div>
                 </div>

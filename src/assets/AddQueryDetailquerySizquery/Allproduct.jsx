@@ -16,7 +16,7 @@ const Allproduct = () => {
 
     return (
         <div className="pb-10 md:pb-20 container mx-auto">
-            <div className="py-10 md:py-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
+            <div className="px-5 py-10 md:py-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
                 <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center">All Query/Product</h1>
                 <p className="text-center text-[18px]">Products are the backbone of modern life, serving a multitude of purposes across various industries and sectors. From everyday essentials like food, clothing, and electronics to specialized tools and equipment used in manufacturing and construction, products play a vital role in meeting human needs and driving economic activity. Whether it.s the latest smartphone, a high-performance automobile, or life-saving medical devices, each product serves a specific function and contributes to enhancing our quality of life. Moreover, advancements in technology continue to revolutionize the way products are designed, produced, and distributed, leading to constant innovation and improvement across different sectors.</p>
             </div>

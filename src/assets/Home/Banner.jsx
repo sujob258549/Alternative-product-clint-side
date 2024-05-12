@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div className="md:pt-28 ">
+        <div className="md:pt-28 md:px-0 px-5 md:mt-0 mt-10">
             <div className=" w-full md:w-[80%] lg:w-[70%] mx-auto pb-8 md:pb-12">
                 <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center">Banner section</h1>
-                <p className="text-center text-[18px] pt-8">Choosing a different product can be a thoughtful decision influenced by various factors. One of the primary reasons for switching products is to ensure satisfaction with the quality. If the current product doesn,t meet expectations or if </p>
+                <p className="text-center text-[18px] pt-4 md:pt-8">Choosing a different product can be a thoughtful decision influenced by various factors. One of the primary reasons for switching products is to ensure satisfaction with the quality. If the current product doesn,t meet expectations or if </p>
             </div>
             <div className="container px-6  mx-auto">
                 <div className="items-center lg:flex">

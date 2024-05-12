@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import './style.css'
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CreatAuthContext } from "../assets/Firebase/Authprovider";
 import { CgProfile } from "react-icons/cg";
 
@@ -8,7 +8,22 @@ import { CgProfile } from "react-icons/cg";
 const Header = () => {
 
     const { user, signout } = useContext(CreatAuthContext)
-    console.log(user);
+
+    const [checkeed, setchecked] = useState('light')
+    useEffect(() => {
+        document.querySelector('html').setAttribute('data-theme', checkeed);
+    }, [checkeed])
+
+    const handelchange = e => {
+        const data = e.target.checked;
+        if (data) {
+            setchecked("aqua")
+        }
+        else {
+            setchecked('light')
+        }
+    }
+    console.log(checkeed);
     const handelsingnout = () => {
         signout()
     }
@@ -47,7 +62,7 @@ const Header = () => {
                         </ul>
                     </div>
                     {/* <h2 className="kurali-font text-4xl font-bold">All <span className="text-[#3F73D3]">Disition</span></h2> */}
-                    <img className="h-16" src="https://i.ibb.co/p3Z6Tr4/altranatiove-removebg-preview.png" alt="" />
+                    <img className="h-16 hidden md:block" src="https://i.ibb.co/p3Z6Tr4/altranatiove-removebg-preview.png" alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -57,6 +72,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end z-50">
+                    <input onChange={handelchange} type="checkbox" className="toggle bg-[#16A34A] mr-2 border-2 border-[#16A34A]" />
                     {
                         user ?
                             <div className="flex">
@@ -68,8 +84,8 @@ const Header = () => {
                                         </div>
                                     </div>
                                     <ul tabIndex={0} className="menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                        <li 
-                                        className=""><Link to={'/profile'} className="flex items-center text-xl font-semibold"><CgProfile className="mr-2"></CgProfile> Profile</Link>
+                                        <li
+                                            className=""><Link to={'/profile'} className="flex items-center text-xl font-semibold"><CgProfile className="mr-2"></CgProfile> Profile</Link>
                                         </li>
 
                                     </ul>

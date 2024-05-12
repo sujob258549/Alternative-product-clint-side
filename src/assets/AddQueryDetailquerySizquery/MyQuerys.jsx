@@ -51,8 +51,8 @@ const MyQuerys = () => {
     }
 
     return (
-        <div className="pb-10 md:pb-20 container mx-auto">
-            <div className="container px-6 py-16 mx-auto">
+        <div className="pb-10 px-5 md:px-0 md:pb-20 container mx-auto">
+            <div className=" py-10 mx-auto">
                 <div className="items-center lg:flex">
                     <div className="w-full lg:w-1/2">
                         <div className="lg:max-w-lg">
@@ -60,7 +60,7 @@ const MyQuerys = () => {
 
                             <p className="mt-3 text-gray-600 md:py-5 dark:text-gray-400">Definitions. The verb whine means to make a high-pitched noise or to complain or beg in a childish way. The noun whine refers to the act of whining or to a complaint uttered in a whining tone. The noun wine refers to the fermented juice of grapes (or other fruits), used as an alcoholic beverage and in cooking.</p>
 
-                            <Link to={'/addproduct'} className="mt-5 inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Add Queries </Link>
+                            <Link to={'/addproduct'} className="mt-5 mb-5 md:mb-0 inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Add Queries </Link>
                         </div>
                     </div>
 
@@ -70,7 +70,7 @@ const MyQuerys = () => {
                 </div>
             </div>
 
-            <div className="py-10 md:py-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
+            <div className="pb-10 md:py-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
                 <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center md:pb-5">My Query/Product</h1>
                 <p className="text-center text-[18px]">Products are the backbone of modern life, serving a multitude of purposes across various industries and sectors. From everyday essentials like food, clothing, and electronics to specialized tools and equipment used in manufacturing and construction, products play a vital role in meeting human needs and driving economic activity. Whether it.s the latest smartphone, a high-performance automobile, or life-saving medical devices, each product serves a specific function and contributes to enhancing our quality of life. Moreover, advancements in technology continue to revolutionize the way products are designed, produced, and distributed, leading to constant innovation and improvement across different sectors.</p>
             </div>

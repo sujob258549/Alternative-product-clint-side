@@ -15,7 +15,7 @@ const SixProduct = () => {
     }, [])
 
     return (
-        <div className="pb-10 md:pb-20">
+        <div className="pb-10 md:pb-20 md:px-0 px-5">
             <div className="py-10 md:pb-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
                 <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center">Product section</h1>
                 <p className="text-center text-[18px]">Products play a crucial role in our daily lives, serving diverse purposes across different sectors. Consumer goods are essential for personal use, ranging from electronics like smartphones to clothing and household items. Industrial products, on the other hand, are integral to manufacturing and construction processes, including machinery and equipment. Healthcare products, such as medications and medical devices, are vital for maintaining and improving health. Software products enable us to accomplish tasks efficiently and stay connected, while food and beverage products provide nourishment and enjoyment. Automotive products, including vehicles and accessories, facilitate transportation and mobility. Each category of products serves distinct needs, contributing to the functionality and convenience of modern life</p>

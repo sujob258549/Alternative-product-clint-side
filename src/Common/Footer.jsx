@@ -10,7 +10,7 @@ const Footer = () => {
                     <h1 className="text-xl font-semibold tracking-tight text-gray-800 md:mx-3 xl:text-2xl dark:text-white"></h1>
 
                     <div className="mt-6 md:mx-3 shrink-0 md:mt-0 md:w-auto mb-5 md:mb-0">
-                        <Link to={'/signup'} href="#" className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">
+                        <Link to={'/signup'}  href="#" className="w-full md:w-48 mb-10 inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">
                             <span>Sign Up Now</span>
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"  className="w-5 h-5">
