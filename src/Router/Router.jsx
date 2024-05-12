@@ -6,6 +6,8 @@ import Signup from "../assets/SignUpandLogine/Signup";
 import AddProduct from "../assets/AddQueryDetailquerySizquery/AddProduct";
 import Profiel from "../Common/Profiel";
 import PrivateRoute from "../assets/PrivateRoute/PrivateRoute";
+import Allproduct from "../assets/AddQueryDetailquerySizquery/Allproduct";
+import MyQuerys from "../assets/AddQueryDetailquerySizquery/MyQuerys";
 
 const router = createBrowserRouter([
     {
@@ -32,8 +34,18 @@ const router = createBrowserRouter([
             }
             ,
             {
+                path: '/allproduct',
+                element: <Allproduct></Allproduct>
+            }
+            ,
+            {
                 path: '/profile',
                 element: <PrivateRoute><Profiel></Profiel></PrivateRoute>
+            }
+            ,
+            {
+                path: '/myquerys',
+                element: <PrivateRoute><MyQuerys></MyQuerys></PrivateRoute>
             }
         ]
 

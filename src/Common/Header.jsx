@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './style.css'
 import { useContext } from "react";
 import { CreatAuthContext } from "../assets/Firebase/Authprovider";
@@ -13,16 +13,16 @@ const Header = () => {
         signout()
     }
     const manuber = <>
-        <Link to={'/'}>Home</Link>
-        <Link to={'/'}>Show</Link>
+        <NavLink to={'/'}>Home</NavLink>
+        <NavLink to={'/allproduct'}>Query</NavLink>
 
         {
             user && (
                 <>
                     {user && (
                         <>
-                            <Link to="/addproduct">Add Queries</Link>
-                            <Link to="/addproduct">My Queries</Link>
+                            <NavLink to="/addproduct">Add Queries</NavLink>
+                            <NavLink to="/myquerys">My Queries</NavLink>
                         </>
                     )}
                 </>

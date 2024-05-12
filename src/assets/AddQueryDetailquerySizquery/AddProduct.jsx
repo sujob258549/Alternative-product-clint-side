@@ -1,9 +1,13 @@
+import axios from "axios";
+import { useContext } from "react";
+import Swal from "sweetalert2";
+import { CreatAuthContext } from "../Firebase/Authprovider";
 
 
 
 const AddProduct = () => {
 
-    // const {user} = useContext(CreatAuthContext)
+    const { user } = useContext(CreatAuthContext)
 
     const handelSubmitCofi = e => {
         e.preventDefault();
@@ -12,30 +16,51 @@ const AddProduct = () => {
         const queeryTitle = e.target.queeryTitle.value;
         const photourl = e.target.photourl.value;
         const text_area = e.target.text_area.value;
+        const userEmail = user?.email
+        const userName = user?.displayName
+        const userPhotoUrl = user?.photoURL
+        const timeAndDate = new Date();
+        const userData = {
+            userEmail, userName, userPhotoUrl, timeAndDate
+        }
 
-        const torestSport = { name, brandName, queeryTitle, photourl, text_area }
-        console.log(torestSport)
+        const products = { name, brandName, queeryTitle, photourl, text_area, userData }
+        console.log(products)
 
-        // fetch('https://asea-ture-zone-10.vercel.app/torestplase', {
+        axios.post(`${import.meta.env.VITE_BACEND_URL}/product`, products)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success...",
+                        text: "Success!",
+                        footer: '<a href="#">Create a User</a>'
+                    });
+                }
+            })
+
+
+        // fetch('http://localhost:3000/product', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'
         //     },
-        //     body: JSON.stringify(torestSport)
+        //     body: JSON.stringify(products)
         // })
         //     .then(res => res.json())
         //     .then(data => {
         //         console.log(data)
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 icon: "success",
-        //                 title: "Success...",
-        //                 text: "user coffee create success",
-        //                 footer: '<a href="/">You add  success</a>'
-        //             });
-        //             navigate('/');
+        //         // if (data.insertedId) {
+        //         //     Swal.fire({
+        //         //         icon: "success",
+        //         //         title: "Success...",
+        //         //         text: "user coffee create success",
+        //         //         footer: '<a href="/">You add  success</a>'
+        //         //     });
+        //         //     navigate('/');
 
-        //         }
+        //         // }
         //     })
 
     }
@@ -79,12 +104,12 @@ const AddProduct = () => {
                                     </div>
                                 </div>
                                 <div className="mt-5">
-                                    <label htmlFor="">short description</label><br />
-                                    <textarea className=" textarea h-32 mt-5 w-full" name="text_area" placeholder="short description"></textarea>
+                                    <label htmlFor="">●	Alternation Reason Details</label><br />
+                                    <textarea className=" textarea h-32 mt-5 w-full" name="text_area" placeholder="Alternation Reason short description"></textarea>
 
                                 </div>
                             </div>
-                            <button className="btn text-white text-2xl font-rancho btn-outline  mt-5 w-full text-center bg-red-500">Add Query</button>
+                            <button className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02] w-full mt-10 ">Add Query</button>
                         </form>
                     </div>
                 </div>
