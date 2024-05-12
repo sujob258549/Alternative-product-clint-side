@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import './style.css'
+import { Link } from "react-router-dom";
 
 const SixProduct = () => {
     const [sixDatas, setSixdatas] = useState([])
@@ -40,10 +41,10 @@ const SixProduct = () => {
                                 </div>
                             </div>
                             <div className="">
-                                <button className='b-radis inline-flex items-center justify-center  bg-green-600 py-3 px-6 text-xl  font-dm  font-semibold text-white shadow-xl shadow-green-600/85 transition-transform duration-200 ease-in-out  w-full'>
-                                    Rrecommend Product
+                                <Link to={`/detail-recomented/${product._id}`} className='b-radis inline-flex items-center justify-center  bg-green-600 py-3 px-6 text-xl  font-dm  font-semibold text-white shadow-xl shadow-green-600/85 transition-transform duration-200 ease-in-out  w-full'>
+                                    Recommend Product
 
-                                </button>
+                                </Link>
                             </div>
 
                         </div>
