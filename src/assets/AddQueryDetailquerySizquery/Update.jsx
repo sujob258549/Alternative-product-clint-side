@@ -32,14 +32,14 @@ const Update = () => {
         axios.put(`${import.meta.env.VITE_BACEND_URL}/product/${updatedata._id}`, products)
             .then(res => {
                 console.log(res.data);
-                
-                    Swal.fire({
-                        icon: "success",
-                        title: "Success...",
-                        text: "Success!",
-                        footer: '<a href="#">Create a User</a>'
-                    });
-                
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Success...",
+                    text: "Success!",
+                    footer: '<a href="#">Create a User</a>'
+                });
+
             })
 
 
@@ -102,7 +102,7 @@ const Update = () => {
                                         <label className="label">
                                             <span className="label-text">Photo URL</span>
                                         </label>
-                                        <input type="text"defaultValue={updatedata.photourl} name="photourl" placeholder="	Product Image-URL" className="input input-bordered" required />
+                                        <input type="text" defaultValue={updatedata.photourl} name="photourl" placeholder="	Product Image-URL" className="input input-bordered" required />
                                     </div>
                                 </div>
                                 <div className="mt-5">

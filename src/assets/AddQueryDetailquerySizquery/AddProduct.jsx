@@ -2,12 +2,14 @@ import axios from "axios";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { CreatAuthContext } from "../Firebase/Authprovider";
+import { useNavigate } from "react-router-dom";
 
 
 
 const AddProduct = () => {
 
     const { user } = useContext(CreatAuthContext)
+    const navigate = useNavigate()
 
     const handelSubmitCofi = e => {
         e.preventDefault();
@@ -31,6 +33,7 @@ const AddProduct = () => {
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
+                    navigate('/allproduct')
                     Swal.fire({
                         icon: "success",
                         title: "Success...",

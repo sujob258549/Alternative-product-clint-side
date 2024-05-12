@@ -4,6 +4,8 @@ import './style.css'
 import { CreatAuthContext } from "../Firebase/Authprovider";
 import { Link } from "react-router-dom";
 import { MdDelete, MdLocalLibrary, MdOutlineModeEdit } from "react-icons/md";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const MyQuerys = () => {
     const { user } = useContext(CreatAuthContext)
@@ -18,6 +20,35 @@ const MyQuerys = () => {
                 setSixdatas(filteredData);
             });
     }, [user.email]);
+
+    const handeldelet =(id)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`${import.meta.env.VITE_BACEND_URL}/product/${id}`)
+                .then(result => {
+                    console.log(result.data)
+                        
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+    
+                })
+                const updatedUsers = sixDatas.filter(user => user._id !== id);
+                setSixdatas(updatedUsers);
+            }
+        });
+
+    }
 
     return (
         <div className="pb-10 md:pb-20 container mx-auto">
@@ -74,7 +105,7 @@ const MyQuerys = () => {
                                        <MdOutlineModeEdit className="text-white text-2xl"></MdOutlineModeEdit>
                                     </Link>
 
-                                    <button className="bg-red-500 rounded-lg hover:bg-red-500/80 duration-300 transition-colors border border-transparent px-8 py-2.5">
+                                    <button onClick={()=>handeldelet(product._id)} className="bg-red-500 rounded-lg hover:bg-red-500/80 duration-300 transition-colors border border-transparent px-8 py-2.5">
                                        <MdDelete className="text-2xl text-white"></MdDelete>
                                     </button>
                                 </div>
