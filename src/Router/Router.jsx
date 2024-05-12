@@ -8,6 +8,8 @@ import Profiel from "../Common/Profiel";
 import PrivateRoute from "../assets/PrivateRoute/PrivateRoute";
 import Allproduct from "../assets/AddQueryDetailquerySizquery/Allproduct";
 import MyQuerys from "../assets/AddQueryDetailquerySizquery/MyQuerys";
+import Detail from "../assets/AddQueryDetailquerySizquery/Detail";
+import Update from "../assets/AddQueryDetailquerySizquery/Update";
 
 const router = createBrowserRouter([
     {
@@ -34,8 +36,21 @@ const router = createBrowserRouter([
             }
             ,
             {
+                path: '/myquerys/:id',
+                element: <Detail></Detail>,
+                loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
+            }
+            ,
+            {
                 path: '/allproduct',
                 element: <Allproduct></Allproduct>
+            }
+            ,
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
+
             }
             ,
             {
