@@ -8,7 +8,7 @@ import { CgProfile } from "react-icons/cg";
 const Header = () => {
 
     const { user, signout } = useContext(CreatAuthContext)
-    console.log(user?.photoURL);
+    console.log(user);
     const handelsingnout = () => {
         signout()
     }

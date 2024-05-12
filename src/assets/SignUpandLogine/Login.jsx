@@ -1,20 +1,43 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CreatAuthContext } from "../Firebase/Authprovider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    const {logineWithGoogle} = useContext(CreatAuthContext);
+    const { logineWithGoogle, signInUser } = useContext(CreatAuthContext);
     const [shoandHideIcone, setShoandHideIcone] = useState(false);
-    const handelgoogleButton=()=>{
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location?.state || '/';
+    const handelgoogleButton = () => {
         logineWithGoogle()
-        .then(result =>{
+            .then(result => {
+                console.log(result);
+                navigate(from)
+            })
+            .catch(error => {
+                console.error(error.message)
+            })
+    }
+
+  
+    const handelSubmitLogin = e => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInUser(email ,password)
+        .then(result => {
             console.log(result);
+            navigate(from)
         })
         .catch(error => {
-            console.error(error.message)
+            console.log(error.message);
+            toast.error('Alrady login')
         })
+        console.log(email, password);
     }
     return (
         <div className="py-16">
@@ -43,25 +66,33 @@ const Login = () => {
                         <a href="#" className="text-xs text-center text-gray-500 uppercase">or login with email</a>
                         <span className="border-b w-1/5 lg:w-1/4"></span>
                     </div>
-                    <div className="mt-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
-                        <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" />
-                    </div>
-                    <div className="mt-4 relative">
-                        <div className="flex justify-between">
-                            <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                            <a href="#" className="text-xs text-gray-500">Forget Password?</a>
+                    <form className="card-body" onSubmit={handelSubmitLogin}>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-xl font-semibold">Email address</span>
+                            </label>
+                            <input type="email" placeholder="Enter your email address" name="email" className="input input-bordered" required />
                         </div>
-                        <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type={shoandHideIcone ? 'text' : 'password'} />
-                        <div className="absolute right-5 bottom-3" onClick={() => setShoandHideIcone(!shoandHideIcone)}>
-                            {
-                                shoandHideIcone ? <FaEyeSlash className="text-xl"></FaEyeSlash> : <FaEye className="text-xl"></FaEye>
-                            }
+                        <div className="form-control relative">
+                            <label className="label">
+                                <span className="label-text text-xl font-semibold">Password</span>
+                            </label>
+                            <input type={shoandHideIcone ? 'text' : 'password'} name="password" placeholder="Enter your password" className="input input-bordered" required />
+                            <div className="absolute right-5 bottom-4" onClick={() => setShoandHideIcone(!shoandHideIcone)}>
+                                {
+                                    shoandHideIcone ? <FaEyeSlash className="text-xl"></FaEyeSlash> : <FaEye className="text-xl"></FaEye>
+                                }
+                            </div>
                         </div>
-                    </div>
-                    <div className="mt-8">
-                        <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Login</button>
-                    </div>
+                        <label className="label">
+                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                        </label>
+
+                        {<p className="text-xl font-medium text-green-500 text-center "></p>}
+                        <div className="form-control">
+                            <button className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02] ">Login</button>
+                        </div>
+                    </form>
                     <div className="mt-4  items-center justify-between">
                         {/* <span className="border-b w-1/5 md:w-1/4"></span>
                         <Link to={'/signup'}  href="#" className="text-xs text-gray-500 uppercase">sign up</Link>
@@ -76,8 +107,9 @@ const Login = () => {
                             </Link>
                         </div>
                     </div>
-                </div>
+                </div >
             </div>
+            <ToastContainer />
         </div>
     );
 }

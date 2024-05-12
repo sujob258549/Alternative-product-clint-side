@@ -4,6 +4,9 @@ import { MdInsertPhoto } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { CreatAuthContext } from "../Firebase/Authprovider";
 import Swal from "sweetalert2";
+ 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Signup = () => {
@@ -15,11 +18,22 @@ const Signup = () => {
         const name = e.target.name.value;
         const photourl = e.target.photourl.value;
         const email = e.target.email.value;
-        const passwird = e.target.passwird.value;
+        const password = e.target.passwird.value;
         const conframpassword = e.target.conframpassword.value;
-        const users = { name, photourl, email, passwird, conframpassword };
+        const users = { name, photourl, email, password, conframpassword };
         console.log(users);
-        creatUser(email, passwird)
+        if (password.length < 6) {
+            toast.error('password enter 6 carector or  a longer!! ');
+            return;
+        }
+        if (password !== conframpassword) {
+            return toast.error('password and confam password No carect!!')
+        }
+        else if (!/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password)) {
+            toast.error('Please use a stronger password.');
+            return;
+        }
+        creatUser(email, password)
             .then(result => {
                 upadateprofile(name, photourl)
                 setuser({ ...user, photoURL: photourl, displayName: name })
@@ -54,7 +68,7 @@ const Signup = () => {
                                     </div>
 
                                     <div className="flex items-center justify-center mt-6">
-                                        <Link to={'/login'} href="#" className="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300">
+                                        <Link to={'/login'} href="#" className="w-1/3 pb-4 font-medium text-center capitalize border-b dark:border-gray-400 ">
                                             sign in
                                         </Link>
 
@@ -70,14 +84,14 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="name" type="text" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
+                                        <input name="name" type="text" className="block w-full py-3  bg-white border rounded-lg px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
                                     </div>
                                     <div className="relative flex items-center mt-8">
                                         <span className="absolute">
                                             <MdInsertPhoto className="ml-3 text-2xl"></MdInsertPhoto >
                                         </span>
 
-                                        <input name="photourl" type="text" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Enter Your Photo Url" />
+                                        <input name="photourl" type="text" className="block w-full py-3  bg-white border rounded-lg px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Enter Your Photo Url" />
                                     </div>
 
                                     {/* <label for="dropzone-file" className=" items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 ">
@@ -97,7 +111,7 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="email" type="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" />
+                                        <input name="email" type="email" className="block w-full py-3  bg-white border rounded-lg px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" />
                                     </div>
 
                                     <div className="relative flex items-center mt-4">
@@ -107,7 +121,7 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="passwird" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" type={shoandHideIcone ? 'text' : 'password'} />
+                                        <input name="passwird" className="block w-full px-10 py-3  bg-white border rounded-lg   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" type={shoandHideIcone ? 'text' : 'password'} />
                                         <div className="absolute right-5 bottom-4" onClick={() => setShoandHideIcone(!shoandHideIcone)}>
                                             {
                                                 shoandHideIcone ? <FaEyeSlash className="text-xl"></FaEyeSlash> : <FaEye className="text-xl"></FaEye>
@@ -122,7 +136,7 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="conframpassword" type={shoandHideIcone ? 'text' : "password"} className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" />
+                                        <input name="conframpassword" type={shoandHideIcone ? 'text' : "password"} className="block w-full px-10 py-3  bg-white border rounded-lg   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" />
 
                                         <div className="absolute  right-5" onClick={() => setShoandHideIcone(!shoandHideIcone)}>
                                             {
@@ -133,7 +147,7 @@ const Signup = () => {
                                     </div>
 
                                     <div className="mt-6">
-                                        <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                                        <button className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02] w-full">
                                             Sign Up
                                         </button>
 
@@ -150,6 +164,7 @@ const Signup = () => {
                     </div>
                 </div>
             </section>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

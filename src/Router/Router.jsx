@@ -5,6 +5,7 @@ import Login from "../assets/SignUpandLogine/Login";
 import Signup from "../assets/SignUpandLogine/Signup";
 import AddProduct from "../assets/AddQueryDetailquerySizquery/AddProduct";
 import Profiel from "../Common/Profiel";
+import PrivateRoute from "../assets/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -16,23 +17,23 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path:'/login',
+                path: '/login',
                 element: <Login></Login>
             }
             ,
             {
-                path:'/signup',
+                path: '/signup',
                 element: <Signup></Signup>
             }
             ,
             {
-                path:'/addproduct',
+                path: '/addproduct',
                 element: <AddProduct></AddProduct>
             }
             ,
             {
-                path:'/profile',
-                element: <Profiel></Profiel>
+                path: '/profile',
+                element: <PrivateRoute><Profiel></Profiel></PrivateRoute>
             }
         ]
 

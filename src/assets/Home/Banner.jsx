@@ -12,7 +12,7 @@ const Banner = () => {
 
                             <p className="mt-3 text-gray-600 dark:text-gray-400">Choosing a different product can be a thoughtful decision influenced by various factors. One of the primary reasons for switching products is to ensure satisfaction with the quality. If the current product doesn,t meet expectations or if there,s another option with better features, durability, or performance, it makes sense to explore alternatives. Cost-effectiveness is another consideration, as different products may offer similar benefits at varying price points. Additionally, brand loyalty plays a significant role. While customers often develop loyalty towards specific brands, better deals or superior products from competitors can lead to a change in brand preference. Innovation drives product development,.</p>
 
-                            <button className="w-full px-5 py-2 mt-6 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Show All Product</button>
+                            <button className="mt-10 inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Show All Product</button>
                         </div>
                     </div>
 
