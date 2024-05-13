@@ -14,7 +14,8 @@ const SixProduct = () => {
         fetch(`${import.meta.env.VITE_BACEND_URL}/product`)
             .then(res => res.json())
             .then(data => {
-                setSixdatas(data)
+                const sortedData = [...data].sort((a, b) => new Date(b.userData.timeAndDate) - new Date(a.userData.timeAndDate));
+                setSixdatas(sortedData);
                 setloder(false)
             })
     }, [setloder])

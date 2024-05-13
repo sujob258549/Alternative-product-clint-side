@@ -15,7 +15,7 @@ const Allproduct = () => {
         fetch(`${import.meta.env.VITE_BACEND_URL}/product`)
             .then(res => res.json())
             .then(data => {
-                const sortedData = [...data].sort((a, b) => new Date(a.userData.timeAndDate) - new Date(b.userData.timeAndDate));
+                const sortedData = [...data].sort((a, b) => new Date(b.userData.timeAndDate) - new Date(a.userData.timeAndDate));
                 setSixdatas(sortedData);
                 setloder(false)
             })

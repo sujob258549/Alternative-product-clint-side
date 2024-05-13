@@ -78,6 +78,17 @@ export default function Slider() {
 
                 </SwiperSlide>
                 <SwiperSlide>
+                    <div className="w-full bg-center bg-cover md:lg:h-[600px] md:h-[400px] h-48" style={{ backgroundImage: "url('https://waltonbd.com/image/catalog/category-banner/television/hotel-mode.jpg')" }}>
+                        <div className="flex items-center justify-center w-full h-full bg-gray-900/40">
+                            <div className="text-center">
+                               <h1 className="text-3xl font-bold text-white lg:text-5xl">No use other Brand <span className="text-yellow-500 ">Use walton brand</span></h1>
+                                <button className="inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02] mt-5">Show All Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </SwiperSlide>
+                <SwiperSlide>
                     <div className="w-full bg-center bg-cover md:lg:h-[600px] md:h-[400px] h-48 " style={{ backgroundImage: "url('https://waltonbd.com/image/catalog/home-page/full-block/tamarind-desktop.jpg')" }}>
                         <div className="flex items-center justify-center w-full h-full bg-gray-900/40">
                             <div className="text-center">
