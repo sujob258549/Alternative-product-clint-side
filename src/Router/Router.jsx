@@ -13,11 +13,13 @@ import Update from "../assets/AddQueryDetailquerySizquery/Update";
 import Recommend from "../assets/AddQueryDetailquerySizquery/Recommend";
 import Myreqummendection from "../assets/AddQueryDetailquerySizquery/Myreqummendection";
 import UpdateRequmendction from "../assets/AddQueryDetailquerySizquery/UpdateRequmendction ";
+import Errorpage from "../assets/Errorpage/Errorpage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Roots></Roots>,
+        errorElement: <Errorpage></Errorpage>,
         children: [
             {
                 path: '/',

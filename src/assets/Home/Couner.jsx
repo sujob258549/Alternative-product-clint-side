@@ -60,7 +60,7 @@ const Couner = () => {
                                             {({ countUpRef, start }) => (
                                                 <div>
                                                     <span ref={countUpRef} />
-                                                    <button onClick={start}>+</button>
+                                                    <button onClick={start}>5M+</button>
                                                 </div>
                                             )}
                                         </CountUp></span></dd>
@@ -74,7 +74,7 @@ const Couner = () => {
                                         {({ countUpRef, start }) => (
                                             <div>
                                                 <span ref={countUpRef} />
-                                                <button onClick={start}>M+</button>
+                                                <button onClick={start}>2M+</button>
                                             </div>
                                         )}
                                     </CountUp></span></dd>
@@ -87,7 +87,7 @@ const Couner = () => {
                                             {({ countUpRef, start }) => (
                                                 <div>
                                                     <span ref={countUpRef} />
-                                                    <button onClick={start}>M+</button>
+                                                    <button onClick={start}>10M+</button>
                                                 </div>
                                             )}
                                         </CountUp></span></dd>
