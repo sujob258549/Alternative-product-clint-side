@@ -3,6 +3,7 @@ import { CreatAuthContext } from "../Firebase/Authprovider";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Typewriter from 'typewriter-effect';
 
 const Myreqummendection = () => {
     const { user } = useContext(CreatAuthContext)
@@ -50,7 +51,13 @@ const Myreqummendection = () => {
     return (
         <div className="py-10 ">
             <section className="container px-4 mx-auto">
-                <h1 className="py-10 md:pb-20 kurali-font text-3xl md:text-5xl font-bold text-center">My Query/<span className="text-[#16A34A]">Recomendaction</span></h1>
+                <h1 className="flex justify-center py-10 md:pb-20 kurali-font text-3xl md:text-5xl font-bold text-center">My Query/<span className="text-[#16A34A] flex justify-center"><Typewriter
+                    options={{
+                        strings: [ 'My Query', 'Recomendaction'],
+                        autoStart: true,
+                        loop: true,
+                    }}
+                /></span></h1>
                 <div className="flex items-center gap-x-3">
                     <h2 className="text-lg font-medium ">Team members</h2>
 

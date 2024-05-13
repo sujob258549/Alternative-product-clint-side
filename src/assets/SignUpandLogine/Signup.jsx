@@ -54,7 +54,7 @@ const Signup = () => {
     return (
         <div>
             <section className="bg-cover bg-center bg-no-repeat" style={{ background: "url('https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div className="container  items-center justify-center min-h-screen px-6 mx-auto">
+                <div data-aos="fade-down" className="container  items-center justify-center min-h-screen px-6 mx-auto">
                     <div className="min-h-screen  py-6  -col justify-center sm:py-12">
                         <div className="relative py-3 sm:max-w-xl sm:mx-auto">
                             <div

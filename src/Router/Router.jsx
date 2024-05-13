@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             ,
             {
                 path: '/addproduct',
-                element: <AddProduct></AddProduct>
+                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
             }
             ,
             {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             ,
             {
                 path: '/update/:id',
-                element: <Update></Update>,
+                element: <PrivateRoute><Update></Update></PrivateRoute>,
                 loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
 
             }

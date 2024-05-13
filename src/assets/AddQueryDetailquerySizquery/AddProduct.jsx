@@ -44,6 +44,11 @@ const AddProduct = () => {
             })
 
 
+
+           
+
+
+
         // fetch('http://localhost:3000/product', {
         //     method: 'POST',
         //     headers: {
