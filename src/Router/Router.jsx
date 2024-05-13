@@ -12,6 +12,7 @@ import Detail from "../assets/AddQueryDetailquerySizquery/Detail";
 import Update from "../assets/AddQueryDetailquerySizquery/Update";
 import Recommend from "../assets/AddQueryDetailquerySizquery/Recommend";
 import Myreqummendection from "../assets/AddQueryDetailquerySizquery/Myreqummendection";
+import UpdateRequmendction from "../assets/AddQueryDetailquerySizquery/UpdateRequmendction ";
 
 const router = createBrowserRouter([
     {
@@ -65,6 +66,12 @@ const router = createBrowserRouter([
                 path: '/detail-recomented/:id',
                 element: <Recommend></Recommend>,
                 loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
+
+            },
+            {
+                path: '/updaterecomendection/:id',
+                element: <PrivateRoute><UpdateRequmendction></UpdateRequmendction></PrivateRoute>,
+                loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation/${params.id}`)
 
             }
             ,
