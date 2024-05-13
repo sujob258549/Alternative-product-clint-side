@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { CreatAuthContext } from "../Firebase/Authprovider";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 
 const Recommend = () => {
+    const navigate = useNavigate()
     const recommendData = useLoaderData();
     const { user } = useContext(CreatAuthContext)
     console.log(recommendData);
@@ -51,6 +52,7 @@ const Recommend = () => {
                         text: "Recommend Success!",
                         footer: '<a href="#">Recommend success</a>'
                     });
+                    navigate('/myrequmentaction')
                 }
             })
 

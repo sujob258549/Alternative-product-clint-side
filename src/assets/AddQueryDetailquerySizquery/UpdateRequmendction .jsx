@@ -1,8 +1,39 @@
-import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const UpdateRequmendction = () => {
     const data = useLoaderData();
+    const navigate = useNavigate()
+    const handelupdaterecommend = e => {
+        e.preventDefault();
+        const rtitle = e.target.rtitle.value;
+        const rproductname = e.target.rproductname.value;
+        const photourl = e.target.photourl.value;
+        const text = e.target.text.value;
+        const timeAndDate = new Date();
+        const updateinfo = {
+            rtitle,
+            rproductname,
+            photourl,
+            text,
+            timeAndDate
+        }
+        console.log(updateinfo);
+        axios.patch(`${import.meta.env.VITE_BACEND_URL}/recommendation/${data._id}`, updateinfo)
+            .then(res => {
+                console.log(res.data);
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Success...",
+                    text: "Success!",
+                    footer: '<a href="#">Create a User</a>'
+                });
+                navigate('/myrequmentaction')
+            })
+    }
 
     console.log(data);
     return (
