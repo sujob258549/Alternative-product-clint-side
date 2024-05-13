@@ -26,14 +26,19 @@ const Recommend = () => {
         const queeryTitle = recommendData.queeryTitle;
         const brandName = recommendData.brandName;
         const name = recommendData.name;
+        const autheruserEmail = recommendData.userData.userEmail;
+        const authoruserName = recommendData.userData.userName;
         const previseData = {
             queeryTitle, brandName, name
         }
         const userData = {
             userEmail, userName, userPhotoUrl
         }
+        const author = {
+            authoruserName, autheruserEmail
+        }
 
-        const recomanded = { rtitle, rproductname, timeAndDate, photourl, text, userData, previseData }
+        const recomanded = { rtitle, rproductname, timeAndDate, photourl, text, userData, previseData ,author}
         console.log(recomanded)
 
         axios.post(`${import.meta.env.VITE_BACEND_URL}/recommendation`, recomanded)
@@ -159,7 +164,7 @@ const Recommend = () => {
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
-                                            <span className="label-text text-[16px] font-bold">Brand name</span>
+                                            <span className="label-text text-[16px] font-bold">Recommended product Name</span>
                                         </label>
                                         <input type="text" name="rproductname" placeholder="Recommended product Name" className="input input-bordered" required />
                                     </div>

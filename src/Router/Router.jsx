@@ -11,6 +11,7 @@ import MyQuerys from "../assets/AddQueryDetailquerySizquery/MyQuerys";
 import Detail from "../assets/AddQueryDetailquerySizquery/Detail";
 import Update from "../assets/AddQueryDetailquerySizquery/Update";
 import Recommend from "../assets/AddQueryDetailquerySizquery/Recommend";
+import Myreqummendection from "../assets/AddQueryDetailquerySizquery/Myreqummendection";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +52,12 @@ const router = createBrowserRouter([
                 path: '/update/:id',
                 element: <Update></Update>,
                 loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
+
+            }
+            ,
+            {
+                path: '/myrequmentaction',
+                element: <PrivateRoute> <Myreqummendection></Myreqummendection></PrivateRoute>
 
             }
             ,
