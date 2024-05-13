@@ -13,6 +13,7 @@ const Authprovider = ({ children }) => {
     const auth = getAuth(app);
 
     const [user, setuser] = useState();
+    const [loder, setloder] = useState(true);
     const googleprovider = new GoogleAuthProvider();
     const githubprovider = new GithubAuthProvider();
 
@@ -63,7 +64,7 @@ const Authprovider = ({ children }) => {
                 console.error(error)
             });
     };
-    const upadateprofile = (name, image) => { 
+    const upadateprofile = (name, image) => {
         updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: image
@@ -77,7 +78,9 @@ const Authprovider = ({ children }) => {
         signout,
         user,
         upadateprofile,
-        setuser
+        setuser,
+        loder,
+        setloder
     }
     return (
         <CreatAuthContext.Provider value={userInfo}>

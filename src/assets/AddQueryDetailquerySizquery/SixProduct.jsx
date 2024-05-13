@@ -1,10 +1,13 @@
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import './style.css'
 import { Link } from "react-router-dom";
+import { BallTriangle } from "react-loader-spinner";
+import { CreatAuthContext } from "../Firebase/Authprovider";
 
 const SixProduct = () => {
     const [sixDatas, setSixdatas] = useState([])
+    const { loder, setloder } = useContext(CreatAuthContext)
     console.log(sixDatas)
 
     useEffect(() => {
@@ -12,13 +15,26 @@ const SixProduct = () => {
             .then(res => res.json())
             .then(data => {
                 setSixdatas(data)
+                setloder(false)
             })
-    }, [])
+    }, [setloder])
 
     return (
         <div className="pb-10 md:pb-20 md:px-0 px-5">
+            <div className="absolute top-[50%] left-[50%]">
+                {loder && <BallTriangle
+                    height={100}
+                    width={100}
+                    radius={5}
+                    color="#4fa94d"
+                    ariaLabel="ball-triangle-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                />}
+            </div>
             <div className="py-10 md:pb-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
-                <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center">Product section</h1>
+                <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center"><span className="text-[#16A34A]">Product </span>section</h1>
                 <p className="text-center text-[18px]">Products play a crucial role in our daily lives, serving diverse purposes across different sectors. Consumer goods are essential for personal use, ranging from electronics like smartphones to clothing and household items. Industrial products, on the other hand, are integral to manufacturing and construction processes, including machinery and equipment. Healthcare products, such as medications and medical devices, are vital for maintaining and improving health. Software products enable us to accomplish tasks efficiently and stay connected, while food and beverage products provide nourishment and enjoyment. Automotive products, including vehicles and accessories, facilitate transportation and mobility. Each category of products serves distinct needs, contributing to the functionality and convenience of modern life</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -28,7 +44,7 @@ const SixProduct = () => {
                             <div className="p-5">
                                 <img className="h-56 object-contain p-5 w-full " src={product.photourl} alt="" />
                                 <div className='product-info space-y-4 pb-3'>
-                                    <h6 className='product-name text-2xl font-bold text-red-700'>{product.queeryTitle}</h6>
+                                    <h6 className='product-name text-2xl font-bold text-[#16A34A]'>{product.queeryTitle}</h6>
                                     <p className="text-xl font-medium">Product Name :{product.name}</p>
                                     <p className="text-xl font-medium">Brang Name : {product.brandName}</p>
                                     <p className="text-xl font-medium">Alternation Reason : {product.text_area.slice(0, 60)}...</p>

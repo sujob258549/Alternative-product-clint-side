@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 import { MdDelete, MdLocalLibrary, MdOutlineModeEdit } from "react-icons/md";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { BallTriangle } from "react-loader-spinner";
 
 const MyQuerys = () => {
-    const { user } = useContext(CreatAuthContext)
+    const { loder, setloder, user } = useContext(CreatAuthContext)
     const [sixDatas, setSixdatas] = useState([])
     console.log(sixDatas)
 
@@ -18,10 +19,11 @@ const MyQuerys = () => {
             .then(data => {
                 const filteredData = data.filter(item => item.userData.userEmail === user.email);
                 setSixdatas(filteredData);
+                setloder(false)
             });
-    }, [user.email]);
+    }, [user.email, setloder]);
 
-    const handeldelet =(id)=>{
+    const handeldelet = (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -33,16 +35,16 @@ const MyQuerys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios.delete(`${import.meta.env.VITE_BACEND_URL}/product/${id}`)
-                .then(result => {
-                    console.log(result.data)
-                        
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
-                                icon: "success"
-                            });
-    
-                })
+                    .then(result => {
+                        console.log(result.data)
+
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+
+                    })
                 const updatedUsers = sixDatas.filter(user => user._id !== id);
                 setSixdatas(updatedUsers);
             }
@@ -52,6 +54,18 @@ const MyQuerys = () => {
 
     return (
         <div className="pb-10 px-5 md:px-0 md:pb-20 container mx-auto">
+            <div className="absolute top-[50%] left-[50%]">
+                {loder && <BallTriangle
+                    height={100}
+                    width={100}
+                    radius={5}
+                    color="#4fa94d"
+                    ariaLabel="ball-triangle-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                />}
+            </div>
             <div className=" py-10 mx-auto">
                 <div className="items-center lg:flex">
                     <div className="w-full lg:w-1/2">
@@ -71,7 +85,7 @@ const MyQuerys = () => {
             </div>
 
             <div className="pb-10 md:py-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
-                <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center md:pb-5">My Query/Product</h1>
+                <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center md:pb-5">My Query/<span className="text-[#16A34A]">product</span></h1>
                 <p className="text-center text-[18px]">Products are the backbone of modern life, serving a multitude of purposes across various industries and sectors. From everyday essentials like food, clothing, and electronics to specialized tools and equipment used in manufacturing and construction, products play a vital role in meeting human needs and driving economic activity. Whether it.s the latest smartphone, a high-performance automobile, or life-saving medical devices, each product serves a specific function and contributes to enhancing our quality of life. Moreover, advancements in technology continue to revolutionize the way products are designed, produced, and distributed, leading to constant innovation and improvement across different sectors.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -101,12 +115,12 @@ const MyQuerys = () => {
                                         <MdLocalLibrary className="text-2xl text-white"></MdLocalLibrary>
                                     </Link>
 
-                                    <Link to={`/update/${product._id}`}className="bg-[#1877F2] rounded-lg hover:bg-[#1877F2]/80 duration-300 transition-colors border border-transparent px-8 py-2.5">
-                                       <MdOutlineModeEdit className="text-white text-2xl"></MdOutlineModeEdit>
+                                    <Link to={`/update/${product._id}`} className="bg-[#1877F2] rounded-lg hover:bg-[#1877F2]/80 duration-300 transition-colors border border-transparent px-8 py-2.5">
+                                        <MdOutlineModeEdit className="text-white text-2xl"></MdOutlineModeEdit>
                                     </Link>
 
-                                    <button onClick={()=>handeldelet(product._id)} className="bg-red-500 rounded-lg hover:bg-red-500/80 duration-300 transition-colors border border-transparent px-8 py-2.5">
-                                       <MdDelete className="text-2xl text-white"></MdDelete>
+                                    <button onClick={() => handeldelet(product._id)} className="bg-red-500 rounded-lg hover:bg-red-500/80 duration-300 transition-colors border border-transparent px-8 py-2.5">
+                                        <MdDelete className="text-2xl text-white"></MdDelete>
                                     </button>
                                 </div>
 

@@ -3,12 +3,13 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { CreatAuthContext } from "../Firebase/Authprovider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { BallTriangle } from "react-loader-spinner";
 
 
 const Recommend = () => {
     const navigate = useNavigate()
     const recommendData = useLoaderData();
-    const { user } = useContext(CreatAuthContext)
+    const { user ,loder ,setloder } = useContext(CreatAuthContext)
     console.log(recommendData);
     const [allrecomended, setAllRecommended] = useState([])
     // const [spisifayallrecomended, setspisifayAllRecommended] = useState([])
@@ -64,8 +65,9 @@ const Recommend = () => {
             .then(data => {
                 const filteredData = data.filter(item => item.previseData.queeryTitle === recommendData.queeryTitle);
                 setAllRecommended(filteredData);
+                setloder(false)
             });
-    }, [recommendData.queeryTitle]);
+    }, [recommendData.queeryTitle,setloder]);
 
     // useEffect(() => {
     //     fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation`)
@@ -83,6 +85,18 @@ const Recommend = () => {
 
     return (
         <div className="container mx-auto md:pt-10 pb-10 md:pb-20 md:px-0 px-5">
+            <div className="absolute top-[50%] left-[50%]">
+                {loder && <BallTriangle
+                    height={100}
+                    width={100}
+                    radius={5}
+                    color="#4fa94d"
+                    ariaLabel="ball-triangle-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                />}
+            </div>
             <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center my-7 md:my-16">Detail <span className="text-[#16A34A]"> Query/Product</span> And <span className="text-[#16A34A]">Recommend</span> </h1>
             <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
                 <div className="overflow-hidden bg-white rounded-lg shadow">

@@ -1,3 +1,11 @@
 .b-radis{
     border-radius: 0px 0px 8px 8px;
 }
+
+
+.bimage{
+    background-image: url('https://images.unsplash.com/photo-1583794018021-c841442da0e3?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJhbCUyMHZpZXd8ZW58MHx8MHx8fDA%3D');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

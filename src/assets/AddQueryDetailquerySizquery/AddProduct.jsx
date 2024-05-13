@@ -68,12 +68,12 @@ const AddProduct = () => {
 
     }
     return (
-        <div>
-            <div className="w-[90%] mx-auto">
+        <div className="bimage">
+            <div className="w-[90%] mx-auto ">
 
-                <div className="bg-[#F4F3F0] rounded-md mb-10 w-full md:w-[60%] lg:w-[50%] mx-auto p-5 md:p-10 mt-10">
+                <div className="bg-[#F4F3F0]  rounded-md mb-10 w-full md:w-[60%] lg:w-[50%] mx-auto p-5 md:p-10 mt-10">
                     <div className=" w-full md:w-[70%] mx-auto text-center pb-10 ">
-                        <h1 className="text-3xl font-bold text-center text-[#374151] font-rancho">Add Query/product Page</h1>
+                        <h1 className="text-3xl font-bold text-center text-[#374151] font-rancho">Add Query/<span className="text-[#16A34A]">product</span> Page</h1>
                     </div>
                     <div >
                         <form onSubmit={handelSubmitCofi} className="">
