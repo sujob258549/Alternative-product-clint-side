@@ -5,14 +5,28 @@
      font-size: 16px;
      font-weight: 700;
      margin-left: 10px;
+     background-color: #16a34a43;
+     border-radius: 5px;
+     margin-bottom: 5px;
+     
+     
     
  }
 
  a.active {
-     border-bottom: 4px solid  #16A34A;
+     border-bottom: 8px solid  #16A34A;
+     background-color: transparent;
      color: #16A34A;
+     border-radius: 5px;
  }
 
  .shadow {
      box-shadow: 1px 1px 10px;
  }
+
+
+/* 
+ <div className="relative group inline-block">
+    <button class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition duration-300 ease-in-out transform hover:scale-105">Hover Me</button>
+    
+</div> */

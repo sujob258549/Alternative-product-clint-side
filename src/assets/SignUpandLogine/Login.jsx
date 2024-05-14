@@ -98,11 +98,11 @@ const Login = () => {
                         <Link to={'/signup'}  href="#" className="text-xs text-gray-500 uppercase">sign up</Link>
                         <span className="border-b w-1/5 md:w-1/4"></span> */}
                         <div className="flex items-center justify-center mt-6">
-                            <Link to={'/login'} href="#" className="w-1/3 pb-4 font-medium text-center  capitalize border-b-2  dark:border-blue-400 border-blue-500 ">
+                            <Link title="Login" to={'/login'} href="#" className="w-1/3 pb-4 font-medium text-center  capitalize border-b-2  dark:border-blue-400 border-blue-500 ">
                                 sign in
                             </Link>
 
-                            <Link to={'/signup'} href="#" className="w-1/3 pb-4 font-medium text-center capitalize border-b-2   dark:text-gray-300">
+                            <Link to={'/signup'} href="#" className="w-1/3  pb-4 font-medium text-center capitalize border-b-2   dark:text-gray-300">
                                 sign up
                             </Link>
                         </div>

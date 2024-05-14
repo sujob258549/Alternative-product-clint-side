@@ -67,7 +67,7 @@ const Recommend = () => {
                 setAllRecommended(filteredData);
                 setloder(false)
             });
-    }, [recommendData.queeryTitle,setloder]);
+    }, [recommendData.queeryTitle,setloder, user]);
 
     // useEffect(() => {
     //     fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation`)

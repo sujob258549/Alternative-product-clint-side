@@ -2,6 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "./firebase.confing";
+import axios from "axios";
 
 
 
@@ -44,6 +45,22 @@ const Authprovider = ({ children }) => {
             if (user) {
                 setuser(user);
                 console.log(user)
+                const userEmail = user.email;
+                const currentUser = { email: userEmail }
+
+                if (user) {
+                    axios.post(`${import.meta.env.VITE_BACEND_URL}/jwt`, currentUser, { withCredentials: true })
+                        .then(res => {
+                            console.log("response", res.data)
+                        })
+                }
+                else {
+                    axios.post(`${import.meta.env.VITE_BACEND_URL}/logout`, currentUser, { withCredentials: true })
+                        .then(res => {
+                            console.log("response", res.data)
+                        })
+                }
+
 
             }
             else {

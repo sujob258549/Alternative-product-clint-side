@@ -14,11 +14,11 @@ const MyQuerys = () => {
     console.log(sixDatas)
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BACEND_URL}/product`)
+        fetch(`${import.meta.env.VITE_BACEND_URL}/product?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
-                const filteredData = data.filter(item => item.userData.userEmail === user.email);
-                setSixdatas(filteredData);
+                // const filteredData = data.filter(item => item.userData.userEmail === user.email);
+                setSixdatas(data);
                 setloder(false)
             });
     }, [user.email, setloder]);
