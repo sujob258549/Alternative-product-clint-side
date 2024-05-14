@@ -49,13 +49,13 @@ const Authprovider = ({ children }) => {
                 const currentUser = { email: userEmail }
 
                 if (user) {
-                    axios.post(`${import.meta.env.VITE_BACEND_URL}/jwt`, currentUser, { withCredentials: true })
+                    axios.post(`${import.meta.env.VITE_BACEND_URL}/jwt`, currentUser, {withCredentials : true})
                         .then(res => {
                             console.log("response", res.data)
                         })
                 }
                 else {
-                    axios.post(`${import.meta.env.VITE_BACEND_URL}/logout`, currentUser, { withCredentials: true })
+                    axios.post(`${import.meta.env.VITE_BACEND_URL}/logout`, currentUser, {withCredentials: true})
                         .then(res => {
                             console.log("response", res.data)
                         })

@@ -9,7 +9,7 @@ import { BallTriangle } from "react-loader-spinner";
 const Recommend = () => {
     const navigate = useNavigate()
     const recommendData = useLoaderData();
-    const { user ,loder ,setloder } = useContext(CreatAuthContext)
+    const { user, loder, setloder } = useContext(CreatAuthContext)
     console.log(recommendData);
     const [allrecomended, setAllRecommended] = useState([])
     // const [spisifayallrecomended, setspisifayAllRecommended] = useState([])
@@ -40,12 +40,22 @@ const Recommend = () => {
             authoruserName, autheruserEmail
         }
 
-        const recomanded = { rtitle, rproductname, timeAndDate, photourl, text, userData, previseData ,author}
+        const recomanded = { rtitle, rproductname, timeAndDate, photourl, text, userData, previseData, author }
         console.log(recomanded)
+
+        if (recommendData.userData.userEmail === user.email) {
+            return Swal.fire({
+                icon: "error",
+                title: " error...",
+                text: "you post Author No Recommend!",
+                footer: '<a href="#">you post Author No Recommend!</a>'
+            });
+        }
 
         axios.post(`${import.meta.env.VITE_BACEND_URL}/recommendation`, recomanded)
             .then(res => {
                 console.log(res.data);
+
                 if (res.data.insertedId) {
                     Swal.fire({
                         icon: "success",
@@ -67,12 +77,12 @@ const Recommend = () => {
                 setAllRecommended(filteredData);
                 setloder(false)
             });
-    }, [recommendData.queeryTitle,setloder, user]);
+    }, [recommendData.queeryTitle, setloder, user]);
 
     // useEffect(() => {
     //     fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation`)
     //         .thenimport Recommend from './Recommend';
-(res => res.json())
+    (res => res.json())
     //         .then(data => {
     //             setAllRecommended(data)
     //         })

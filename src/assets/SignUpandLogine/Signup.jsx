@@ -72,7 +72,7 @@ const Signup = () => {
                                             sign in
                                         </Link>
 
-                                        <a href="#" className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 ">
+                                        <a href="#" className="w-1/3 dark:text-gray-300 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 ">
                                             sign up
                                         </a>
                                     </div>
@@ -84,17 +84,17 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="name" type="text" className="block w-full py-3  bg-white border rounded-lg px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
+                                        <input name="name" type="text" className="block w-full py-3  bg-white border rounded-lg px-11   text-black  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring " placeholder="Username" />
                                     </div>
                                     <div className="relative flex items-center mt-8">
                                         <span className="absolute">
                                             <MdInsertPhoto className="ml-3 text-2xl"></MdInsertPhoto >
                                         </span>
 
-                                        <input name="photourl" type="text" className="block w-full py-3  bg-white border rounded-lg px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Enter Your Photo Url" />
+                                        <input name="photourl" type="text" className="block w-full py-3  bg-white border rounded-lg px-11   text-black  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Enter Your Photo Url" />
                                     </div>
 
-                                    {/* <label for="dropzone-file" className=" items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 ">
+                                    {/* <label for="dropzone-file" className=" items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer text-black  dark:border-gray-600 ">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                 </svg>
@@ -111,7 +111,7 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="email" type="email" className="block w-full py-3  bg-white border rounded-lg px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" />
+                                        <input name="email" type="email" className="block w-full py-3  bg-white border rounded-lg px-11   text-black  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" />
                                     </div>
 
                                     <div className="relative flex items-center mt-4">
@@ -121,7 +121,7 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="passwird" className="block w-full px-10 py-3  bg-white border rounded-lg   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" type={shoandHideIcone ? 'text' : 'password'} />
+                                        <input name="passwird" className="block w-full px-10 py-3  bg-white border rounded-lg   text-black  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" type={shoandHideIcone ? 'text' : 'password'} />
                                         <div className="absolute right-5 bottom-4" onClick={() => setShoandHideIcone(!shoandHideIcone)}>
                                             {
                                                 shoandHideIcone ? <FaEyeSlash className="text-xl"></FaEyeSlash> : <FaEye className="text-xl"></FaEye>
@@ -136,7 +136,7 @@ const Signup = () => {
                                             </svg>
                                         </span>
 
-                                        <input name="conframpassword" type={shoandHideIcone ? 'text' : "password"} className="block w-full px-10 py-3  bg-white border rounded-lg   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" />
+                                        <input name="conframpassword" type={shoandHideIcone ? 'text' : "password"} className="block w-full px-10 py-3  bg-white border rounded-lg   text-black  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" />
 
                                         <div className="absolute  right-5" onClick={() => setShoandHideIcone(!shoandHideIcone)}>
                                             {

@@ -14,6 +14,8 @@ import Recommend from "../assets/AddQueryDetailquerySizquery/Recommend";
 import Myreqummendection from "../assets/AddQueryDetailquerySizquery/Myreqummendection";
 import UpdateRequmendction from "../assets/AddQueryDetailquerySizquery/UpdateRequmendction ";
 import Errorpage from "../assets/Errorpage/Errorpage";
+import MeRecomndaction from "../assets/AddQueryDetailquerySizquery/MeRecomndaction";
+import DetailMeRecomended from "../assets/AddQueryDetailquerySizquery/DetailMeRecomended";
 
 const router = createBrowserRouter([
     {
@@ -43,7 +45,7 @@ const router = createBrowserRouter([
             {
                 path: '/myquerys/:id',
                 element: <Detail></Detail>,
-                loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
             }
             ,
             {
@@ -54,7 +56,7 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
 
             }
             ,
@@ -67,13 +69,13 @@ const router = createBrowserRouter([
             {
                 path: '/detail-recomented/:id',
                 element: <Recommend></Recommend>,
-                loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_BACEND_URL}/product/${params.id}`)
 
             },
             {
                 path: '/updaterecomendection/:id',
                 element: <PrivateRoute><UpdateRequmendction></UpdateRequmendction></PrivateRoute>,
-                loader: ({params})=> fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation/${params.id}`)
 
             }
             ,
@@ -83,8 +85,20 @@ const router = createBrowserRouter([
             }
             ,
             {
+                path: '/requmentactionme',
+                element: <PrivateRoute><MeRecomndaction></MeRecomndaction></PrivateRoute>,
+                loader: () => fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation`)
+            },
+            {
+                path: '/recomendeddatail/:id',
+                element: <PrivateRoute><DetailMeRecomended></DetailMeRecomended></PrivateRoute>,
+                loader: ({params}) => fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation/${params.id}`)
+            }
+            ,
+            {
                 path: '/myquerys',
                 element: <PrivateRoute><MyQuerys></MyQuerys></PrivateRoute>
+
             }
         ]
 

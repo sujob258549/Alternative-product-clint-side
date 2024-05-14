@@ -8,14 +8,18 @@
      background-color: #16a34a43;
      border-radius: 5px;
      margin-bottom: 5px;
+     border-top: 4px solid  #16A34A;
      
      
     
  }
 
  a.active {
-     border-bottom: 8px solid  #16A34A;
+     border-bottom: 4px solid  #16A34A;
+     border-left: 4px solid  #16A34A;
+     border-right: 4px solid  #16A34A;
      background-color: transparent;
+     border-top: transparent;
      color: #16A34A;
      border-radius: 5px;
  }

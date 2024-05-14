@@ -38,7 +38,8 @@ const Header = () => {
                         <>
                             <NavLink to="/addproduct">Add Queries</NavLink>
                             <NavLink to="/myquerys">My Queries</NavLink>
-                            <NavLink to="/myrequmentaction">My Recommendations</NavLink>
+                            <NavLink to="/myrequmentaction">My Reco..</NavLink>
+                            <NavLink to="/requmentactionme">Reco.. For Me</NavLink>
                         </>
                     )}
                 </>
