@@ -9,6 +9,7 @@ const Allproduct = () => {
     const { loder, setloder } = useContext(CreatAuthContext)
     const [sixDatas, setSixdatas] = useState([])
     const [search, setSecarch] = useState('')
+    const [order, setOrder] = useState()
     const [gridTogle, setgridTogle] = useState(3)
     console.log(search)
 
@@ -16,11 +17,25 @@ const Allproduct = () => {
         fetch(`${import.meta.env.VITE_BACEND_URL}/product?search=${search}`)
             .then(res => res.json())
             .then(data => {
-                const sortedData = [...data].sort((a, b) => new Date(b.userData.timeAndDate) - new Date(a.userData.timeAndDate));
-                setSixdatas(sortedData);
+                // const sortedData = [...data].sort((a, b) => new Date(b.userData.timeAndDate) - new Date(a.userData.timeAndDate));
+                setSixdatas(data);
                 setloder(false)
             })
     }, [search, setloder])
+
+    useEffect(() => {
+        if (order === 'ass') {
+            const sortedData = [...sixDatas].sort((a, b) => new Date(b.userData.timeAndDate) - new Date(a.userData.timeAndDate));
+            setSixdatas(sortedData);
+        }
+        else if(order === 'des'){
+            const sortedData = [...sixDatas].sort((a, b) => new Date(a.userData.timeAndDate) - new Date(b.userData.timeAndDate));
+            setSixdatas(sortedData);
+            
+        }
+
+    }, [sixDatas, order])
+    console.log(sixDatas);
 
     const handelChengelaout = e => {
         const griddata = e.target.value;
@@ -33,6 +48,13 @@ const Allproduct = () => {
         setSecarch(secarhText);
     }
 
+
+    const hendelorder = e => {
+        const griddata = e.target.value;
+        setOrder(griddata);
+        console.log(griddata);
+    }
+    
 
 
     return (
@@ -77,14 +99,24 @@ const Allproduct = () => {
                 <h1 data-aos="fade-left" className="kurali-font text-3xl md:text-5xl font-bold text-center">All Query/<span className="text-[#16A34A]">product</span></h1>
                 <p data-aos="fade-right" className="text-center text-[18px]">Products are the backbone of modern life, serving a multitude of purposes across various industries and sectors. From everyday essentials like food, clothing, and electronics to specialized tools and equipment used in manufacturing and construction, products play a vital role in meeting human needs and driving economic activity. Whether it.s the latest smartphone, a high-performance automobile, or life-saving medical devices, each product serves a specific function and contributes to enhancing our quality of life. Moreover, advancements in technology continue to revolutionize the way products are designed, produced, and distributed, leading to constant innovation and improvement across different sectors.</p>
             </div>
-            <div className="flex justify-center py-10">
-                <select onChange={handelChengelaout} className="text-xl kurali-font font-medium select select-info w-full max-w-xs">
-                    <option className="text-xl kurali-font font-medium" disabled selected>Chenge grid leout option</option>
-                    <option className="text-xl kurali-font font-medium" value={1}>Creat laout1</option>
-                    <option className="text-xl kurali-font font-medium" value={2}>Creat laout2</option>
-                    <option className="text-xl kurali-font font-medium" value={3}>Creat laout3</option>
-                    {/* <option className="text-xl kurali-font font-medium" value={4}>Creat laout4</option> */}
-                </select>
+            <div className="flex gap-5 flex-wrap justify-center">
+                <div className="flex justify-center py-10">
+                    <select onChange={hendelorder} className="text-xl kurali-font font-medium select select-info w-full max-w-xs">
+                        <option className="text-xl kurali-font font-medium" disabled selected>Creat a Sort</option>
+                        <option className="text-xl kurali-font font-medium" value={'ass'}>Assanding</option>
+                        <option className="text-xl kurali-font font-medium" value={"des"}>Dessanding</option>
+
+                    </select>
+                </div>
+                <div className="flex justify-center py-10">
+                    <select onChange={handelChengelaout} className="text-xl kurali-font font-medium select select-info w-full max-w-xs">
+                        <option className="text-xl kurali-font font-medium" disabled selected>Chenge grid leout option</option>
+                        <option className="text-xl kurali-font font-medium" value={1}>Creat laout1</option>
+                        <option className="text-xl kurali-font font-medium" value={2}>Creat laout2</option>
+                        <option className="text-xl kurali-font font-medium" value={3}>Creat laout3</option>
+                        {/* <option className="text-xl kurali-font font-medium" value={4}>Creat laout4</option> */}
+                    </select>
+                </div>
             </div>
             <div className={`grid  md:grid-cols-${gridTogle} gap-10 px-5 md:px-0`}>
                 {
