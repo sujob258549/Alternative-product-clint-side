@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Typewriter from 'typewriter-effect';
+import { Helmet } from "react-helmet-async";
 
 const Myreqummendection = () => {
     const { user  } = useContext(CreatAuthContext)
@@ -50,6 +51,9 @@ const Myreqummendection = () => {
 
     return (
         <div className="py-10 ">
+            <Helmet>
+                <title>Altranative product || My Recomendaction</title>
+            </Helmet>
             <section className="container px-4 mx-auto">
                 <h1 className="flex justify-center py-10 md:pb-20 kurali-font text-3xl md:text-5xl font-bold text-center">My Query/<span className="text-[#16A34A] flex justify-center"><Typewriter
                     options={{

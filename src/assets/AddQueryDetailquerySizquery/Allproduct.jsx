@@ -6,6 +6,7 @@ import { CreatAuthContext } from "../Firebase/Authprovider";
 import { BallTriangle } from "react-loader-spinner";
 import { motion } from "framer-motion"
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Allproduct = () => {
     const { loder, setloder } = useContext(CreatAuthContext)
@@ -62,6 +63,9 @@ const Allproduct = () => {
 
     return (
         <div className="z-50 pb-10 md:pb-20 container mx-auto">
+             <Helmet>
+                <title>Altranative product || All Query</title>
+            </Helmet>
             <div className="absolute top-[50%] left-[50%]">
                 {loder && <BallTriangle
                     height={100}

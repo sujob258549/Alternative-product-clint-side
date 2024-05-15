@@ -7,6 +7,7 @@ import { MdDelete, MdLocalLibrary, MdOutlineModeEdit } from "react-icons/md";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { BallTriangle } from "react-loader-spinner";
+import { Helmet } from "react-helmet-async";
 
 const MyQuerys = () => {
     const { loder, setloder, user } = useContext(CreatAuthContext)
@@ -54,6 +55,9 @@ const MyQuerys = () => {
 
     return (
         <div className="pb-10 px-5 md:px-0 md:pb-20 container mx-auto">
+             <Helmet>
+                <title>Altranative product || My Query</title>
+            </Helmet>
             <div className="absolute top-[50%] left-[50%]">
                 {loder && <BallTriangle
                     height={100}

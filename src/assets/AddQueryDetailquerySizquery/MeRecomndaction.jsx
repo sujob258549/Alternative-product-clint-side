@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { CreatAuthContext } from "../Firebase/Authprovider";
 import { Link, useLoaderData } from "react-router-dom";
+import ProductSlider from "../Home/ProductSlider";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -46,7 +48,11 @@ const MeRecomndaction = () => {
     // }
     return (
         <div className="py-10 md:py-20">
+           
             <section className="container px-4 mx-auto">
+            <Helmet>
+                <title>Altranative product ||  Recomendaction for me</title>
+            </Helmet>
                 <div className="flex flex-col">
                     <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <h1 className="flex justify-center py-10 md:pb-20 kurali-font text-3xl md:text-5xl font-bold text-center">Recomendaction for <span className="ml-2 text-[#16A34A] flex justify-center">

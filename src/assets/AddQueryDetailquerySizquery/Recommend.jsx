@@ -4,6 +4,7 @@ import { CreatAuthContext } from "../Firebase/Authprovider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { BallTriangle } from "react-loader-spinner";
+import { Helmet } from "react-helmet-async";
 
 
 const Recommend = () => {
@@ -95,6 +96,9 @@ const Recommend = () => {
 
     return (
         <div className="container mx-auto md:pt-10 pb-10 md:pb-20 md:px-0 px-5">
+            <Helmet>
+                <title>Altranative product || Recommend</title>
+            </Helmet>
             <div className="absolute top-[50%] left-[50%]">
                 {loder && <BallTriangle
                     height={100}

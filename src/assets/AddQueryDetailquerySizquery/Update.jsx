@@ -3,6 +3,7 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { CreatAuthContext } from "../Firebase/Authprovider";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -68,6 +69,9 @@ const Update = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Altranative product || Update My Recomendaction</title>
+            </Helmet>
             <div className="w-[90%] mx-auto">
 
                 <div className="bg-[#F4F3F0] rounded-md mb-10 w-full md:w-[60%] lg:w-[50%] mx-auto p-5 md:p-10 mt-10">

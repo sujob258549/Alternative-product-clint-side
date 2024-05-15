@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import SixProduct from "../AddQueryDetailquerySizquery/SixProduct";
 import Addslider from "./Addslider";
 import Banner from "./Banner";
@@ -8,6 +9,9 @@ import Slider from "./Slider";
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Altranative product || Home</title>
+            </Helmet>
             <Slider></Slider>
             <div className="container mx-auto">
                 <Banner></Banner>
