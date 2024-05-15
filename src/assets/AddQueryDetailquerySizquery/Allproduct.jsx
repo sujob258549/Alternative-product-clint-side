@@ -4,6 +4,7 @@ import './style.css'
 import { Link } from "react-router-dom";
 import { CreatAuthContext } from "../Firebase/Authprovider";
 import { BallTriangle } from "react-loader-spinner";
+import { motion } from "framer-motion"
 
 const Allproduct = () => {
     const { loder, setloder } = useContext(CreatAuthContext)
@@ -28,13 +29,13 @@ const Allproduct = () => {
             const sortedData = [...sixDatas].sort((a, b) => new Date(b.userData.timeAndDate) - new Date(a.userData.timeAndDate));
             setSixdatas(sortedData);
         }
-        else if(order === 'des'){
+        else if (order === 'des') {
             const sortedData = [...sixDatas].sort((a, b) => new Date(a.userData.timeAndDate) - new Date(b.userData.timeAndDate));
             setSixdatas(sortedData);
-            
+
         }
 
-    }, [sixDatas, order])
+    }, [order])
     console.log(sixDatas);
 
     const handelChengelaout = e => {
@@ -54,7 +55,7 @@ const Allproduct = () => {
         setOrder(griddata);
         console.log(griddata);
     }
-    
+
 
 
     return (
@@ -96,7 +97,14 @@ const Allproduct = () => {
             </form>
 
             <div className="px-5 py-10 md:py-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
-                <h1 data-aos="fade-left" className="kurali-font text-3xl md:text-5xl font-bold text-center">All Query/<span className="text-[#16A34A]">product</span></h1>
+                <motion.h1
+                    animate={{ x: 200 }}
+                    transition={{ type: "spring", stiffness: 100 }}
+                    // data-aos="fade-left"
+                    className="kurali-font text-3xl md:text-5xl font-bold"
+                >
+                    All Query/<span className="text-[#16A34A]">product</span>
+                </motion.h1>
                 <p data-aos="fade-right" className="text-center text-[18px]">Products are the backbone of modern life, serving a multitude of purposes across various industries and sectors. From everyday essentials like food, clothing, and electronics to specialized tools and equipment used in manufacturing and construction, products play a vital role in meeting human needs and driving economic activity. Whether it.s the latest smartphone, a high-performance automobile, or life-saving medical devices, each product serves a specific function and contributes to enhancing our quality of life. Moreover, advancements in technology continue to revolutionize the way products are designed, produced, and distributed, leading to constant innovation and improvement across different sectors.</p>
             </div>
             <div className="flex gap-5 flex-wrap justify-center">
@@ -138,8 +146,8 @@ const Allproduct = () => {
                                 </div>
                             </div>
                             <div className="">
-                                <Link to={`/detail-recomented/${product._id}`} className='b-radis inline-flex items-center justify-center  bg-green-600 py-3 px-6 text-xl  font-dm  font-semibold text-white shadow-xl shadow-green-600/85 transition-transform duration-200 ease-in-out  w-full'>
-                                    Rrecommend Product
+                                <Link to={`/detail-recomented/${product._id}`} className='b-radis inline-flex items-center justify-center  bg-green-600 py-3 px-6 text-[16px] font-dm  font-semibold text-white shadow-xl shadow-green-600/85 transition-transform duration-200 ease-in-out  w-full'>
+                                    Rrecommend Product / detail
 
                                 </Link>
                             </div>

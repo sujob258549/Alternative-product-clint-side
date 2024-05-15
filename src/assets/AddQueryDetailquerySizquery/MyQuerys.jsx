@@ -70,7 +70,7 @@ const MyQuerys = () => {
                 <div className="items-center lg:flex">
                     <div className="w-full lg:w-1/2">
                         <div className="lg:max-w-lg">
-                            <h1 data-aos="fade-right" className="text-3xl font-semibold text-gray-800 lg:text-4xl">My Add query <br /> your <span className="text-blue-500 ">Section</span></h1>
+                            <h1 data-aos="fade-right" className="text-3xl kurali-font  font-semibold lg:text-4xl">My Add query <br /> your <span className="text-[#16A34A]">Section</span></h1>
 
                             <p data-aos="fade-down-left" className="mt-3 text-gray-600 md:py-5 dark:text-gray-400">Definitions. The verb whine means to make a high-pitched noise or to complain or beg in a childish way. The noun whine refers to the act of whining or to a complaint uttered in a whining tone. The noun wine refers to the fermented juice of grapes (or other fruits), used as an alcoholic beverage and in cooking.</p>
 

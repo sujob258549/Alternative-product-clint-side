@@ -109,62 +109,67 @@ const Recommend = () => {
             </div>
             <h1 className="kurali-font text-3xl md:text-5xl font-bold text-center my-7 md:my-16">Detail <span className="text-[#16A34A]"> Query/Product</span> And <span className="text-[#16A34A]">Recommend</span> </h1>
             <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
-                <div className="overflow-hidden bg-white rounded-lg shadow">
-                    <img className="object-contain w-full h-64" src={recommendData.photourl} alt="Article" />
+                <div >
+                    <div >
 
-                    <div className="p-6">
                         <div className="">
-                            <div>
-                                <h2 href="#" className="block mt-2 text-xl md:text-3xl font-semibold  transition-colors duration-300 transform " tabIndex="0" role="link"> Query Title : <span className="text-[#16A34A]">{recommendData.queeryTitle}</span></h2>
-                                <h2 href="#" className="block mt-2 text-xl md:text-2xl font-semibold  transition-colors duration-300 transform " tabIndex="0" role="link">Product Name : <span className="text-[#16A34A]">{recommendData.brandName}</span></h2>
-                                <a href="#" className="block mt-2 text-xl md:text-2xl font-semibold  transition-colors duration-300 transform " tabIndex="0" role="link">Product Name : {recommendData.name}</a>
-                                <div className="flex gap-2">
-                                    <p className="mt-2 text-xl dark:text-gray-600"> <span className="md:text-2xl font-bold">Recommend text : </span>{recommendData.text_area}</p>
-                                </div>
-                                <p className="mt-2 text-xl "><span className="font-bold md:text-2xl">Publis time : </span>{recommendData.userData.timeAndDate}</p>
-                                <p className="mt-2 text-xl "><span className="font-bold md:text-2xl">Recommendation Count : </span>{allrecomended.length}</p>
+                            <div className="p-6 overflow-hidden bg-white rounded-lg shadow">
+                                <img className="object-contain w-full h-64" src={recommendData.photourl} alt="Article" />
+                                <div className="">
+                                    <div>
+                                        <h2 href="#" className="block mt-2 text-xl md:text-3xl font-semibold  transition-colors duration-300 transform " tabIndex="0" role="link"> Query Title : <span className="text-[#16A34A]">{recommendData.queeryTitle}</span></h2>
+                                        <h2 href="#" className="block mt-2 text-xl md:text-2xl font-semibold  transition-colors duration-300 transform " tabIndex="0" role="link">Product Name : <span className="text-[#16A34A]">{recommendData.brandName}</span></h2>
+                                        <a href="#" className="block mt-2 text-xl md:text-2xl font-semibold  transition-colors duration-300 transform " tabIndex="0" role="link">Product Name : {recommendData.name}</a>
+                                        <div className="flex gap-2">
+                                            <p className="mt-2 text-xl dark:text-gray-600"> <span className="md:text-2xl font-bold">Recommend text : </span>{recommendData.text_area}</p>
+                                        </div>
+                                        <p className="mt-2 text-xl "><span className="font-bold md:text-2xl">Publis time : </span>{recommendData.userData.timeAndDate}</p>
+                                        <p className="mt-2 text-xl "><span className="font-bold md:text-2xl">Recommendation Count : </span>{allrecomended.length}</p>
 
+                                    </div>
+                                    <div className="mt-4">
+                                        <div className="flex items-center">
+                                            <div className="flex items-center">
+                                                <div className="relative">
+                                                    <img className="object-cover w-16 h-16 rounded-full" src={recommendData.userData.userPhotoUrl} alt="" />
+                                                    <span className={recommendData.userData.userPhotoUrl.userEmail === user?.email ? 'absolute bottom-0 w-3 h-3 rounded-full right-1 ring-1 ring-white' : 'absolute bottom-0 w-3 h-3 rounded-full bg-emerald-500 right-1 ring-1 ring-white'}></span>
+                                                </div>
+                                                <div className="ml-4">
+                                                    <p className="text-[16px] ">{recommendData.userData.userName} <span>{recommendData.userData.timeAndDate}</span></p>
+                                                    <p className="mx-1 text-[16px]">{recommendData.userData.userEmail}</p>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                        </div>
 
-                        <div className="mt-4">
-                            <div className="flex items-center">
-                                <div className="flex items-center">
-                                    <div className="relative">
-                                        <img className="object-cover w-16 h-16 rounded-full" src={recommendData.userData.userPhotoUrl} alt="" />
-                                        <span className={recommendData.userData.userPhotoUrl.userEmail === user?.email ? 'absolute bottom-0 w-3 h-3 rounded-full right-1 ring-1 ring-white' : 'absolute bottom-0 w-3 h-3 rounded-full bg-emerald-500 right-1 ring-1 ring-white'}></span>
-                                    </div>
-                                    <div className="ml-4">
-                                        <p className="text-[16px] ">{recommendData.userData.userName} <span>{recommendData.userData.timeAndDate}</span></p>
-                                        <p className="mx-1 text-[16px]">{recommendData.userData.userEmail}</p>
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-                            <div className="mt-10">
+                            <div className="mt-5">
+                            <h2 className="text-3xl font-bold kurali-font text-center text-[#16A34A] mb-5" style={{ clipPath: 'polygon(11% 0, 88% 0, 100% 100%, 0% 100%)' }}>All Recommendations</h2>
                                 {
                                     allrecomended.map(recommended => (
-                                        <div key={recommended._id} className="mb-5 max-w-2xl px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
-                                            <img className="w-full h-48 object-cover" src={recommended.photourl} alt="" />
+                                        <div key={recommended._id} className="shadow mb-5 max-w-2xl px-8 py-4 bg-white rounded-lg ">
+                                            <img className=" mx-auto w-48 object-cover" src={recommended.photourl} alt="" />
                                             <div className="flex items-center justify-between mt-5">
-                                                <span className="text-sm font-light text-gray-600 dark:text-gray-400">{recommended.timeAndDate}</span>
+                                                <span className="text-sm font-light kurali-font ">{recommended.timeAndDate}</span>
                                                 <a className="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500" tabIndex="0" role="button">{recommended.rtitle}</a>
                                             </div>
 
                                             <div className="mt-2">
                                                 <a href="#" className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabIndex="0" role="link">{recommended.rproductname}</a>
-                                                <p className="mt-2 text-gray-600 dark:text-gray-300">{recommended.text}</p>
+                                                <p className="mt-2">{recommended.text}</p>
                                             </div>
 
                                             <div className="flex items-center justify-between mt-4">
-                                                <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline" tabIndex="0" role="link">Read more</a>
+                                                <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline" tabIndex="0" role="link"></a>
 
                                                 <div className="flex items-center">
                                                     <img className="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" src={recommended.userData.userPhotoUrl} alt="avatar" />
-                                                    <a className="font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabIndex="0" role="link">{recommended.userData.userName}</a>
+                                                    <a className="font-bold  cursor-pointe" tabIndex="0" role="link">{recommended.userData.userName}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -178,7 +183,7 @@ const Recommend = () => {
 
                 <div className="">
                     <div className="shadow p-8 py-6 rounded-lg">
-                        <h1 className="text-3xl font-bold text-center text-[#374151] font-rancho">Add Recommend from</h1>
+                        <h1 className="text-3xl font-bold text-center kurali-font  text-[#374151] font-rancho">Add <span className="text-[#16A34A]">Recommend</span> from</h1>
                         <form onSubmit={handelSubmitCofi} className="">
                             <div className="form-control">
                                 <div className="grid  grid-cols-1 md:gap-5 mt-5">
