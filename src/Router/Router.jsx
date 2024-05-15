@@ -87,7 +87,7 @@ const router = createBrowserRouter([
             {
                 path: '/requmentactionme',
                 element: <PrivateRoute><MeRecomndaction></MeRecomndaction></PrivateRoute>,
-                loader: () => fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation`)
+                loader: () => fetch(`${import.meta.env.VITE_BACEND_URL}/recommendationme`)
             },
             {
                 path: '/recomendeddatail/:id',

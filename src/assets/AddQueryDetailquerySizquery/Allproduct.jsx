@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CreatAuthContext } from "../Firebase/Authprovider";
 import { BallTriangle } from "react-loader-spinner";
 import { motion } from "framer-motion"
+import axios from "axios";
 
 const Allproduct = () => {
     const { loder, setloder } = useContext(CreatAuthContext)
@@ -15,11 +16,12 @@ const Allproduct = () => {
     console.log(search)
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BACEND_URL}/product?search=${search}`)
-            .then(res => res.json())
+        axios.get(`${import.meta.env.VITE_BACEND_URL}/allproduct?search=${search}`)
+            // .then(res => res.json())
             .then(data => {
                 // const sortedData = [...data].sort((a, b) => new Date(b.userData.timeAndDate) - new Date(a.userData.timeAndDate));
-                setSixdatas(data);
+                console.log(data);
+                setSixdatas(data?.data);
                 setloder(false)
             })
     }, [search, setloder])
@@ -100,7 +102,7 @@ const Allproduct = () => {
                 <motion.h1
                     animate={{ x: 200 }}
                     transition={{ type: "spring", stiffness: 100 }}
-                    // data-aos="fade-left"
+                     data-aos="fade-left" data-aos-duration="2000"
                     className="kurali-font text-3xl md:text-5xl font-bold"
                 >
                     All Query/<span className="text-[#16A34A]">product</span>
@@ -129,7 +131,7 @@ const Allproduct = () => {
             <div className={`grid  md:grid-cols-${gridTogle} gap-10 px-5 md:px-0`}>
                 {
                     sixDatas.map(product => (
-                        <div data-aos="fade-down" key={product._id} className=' flex flex-col justify-between shadow rounded-lg relative'>
+                        <div data-aos="fade-down" data-aos-duration="2000" key={product._id} className=' flex flex-col justify-between shadow rounded-lg relative'>
                             <div className="p-5">
                                 <img className="h-56 object-contain p-5 w-full " src={product.photourl} alt="" />
                                 <div className='product-info space-y-4 pb-3'>

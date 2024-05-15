@@ -10,13 +10,13 @@ const Myreqummendection = () => {
     const [allrecomended, setAllRecommended] = useState([])
     console.log(allrecomended);
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation?email=${user.email}`)
-            .then(res => res.json())
+        axios.get(`${import.meta.env.VITE_BACEND_URL}/recommendation?email=${user.email}`, {withCredentials : true})
+            // .then(res => res.json())
             .then(data => {
                 // const filteredData = data.filter(item => item.userData.userEmail === user.email);
-                setAllRecommended(data);
+                setAllRecommended(data?.data);
             });
-    }, [user.email]);
+    }, [user]);
 
 
     const handelRecomendactiondelete = (id) => {

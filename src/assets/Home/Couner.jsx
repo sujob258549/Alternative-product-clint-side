@@ -12,10 +12,10 @@ const Couner = () => {
                         </div>
                     </div>
                     <div className="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none border lg:rounded-lg">
-                        <h2 className="text-3xl text-gray-800 font-bold">
+                        <h2 className="text-3xl md:text-4xl kurali-font text-gray-800 font-bold">
                             Laptop vary slow This recomend use
 
-                            <span className="text-indigo-600"> Dextop</span>
+                            <span className="text-[#16A34A]"> Dextop</span>
                         </h2>
                         <p className="mt-4 text-gray-600">
                             When considering whether a laptop or a desktop computer is the better option, several factors come into play. Firstly, portability stands out as a key feature of laptops. Their ability to be carried around and used in various locations makes them convenient for students, professionals, and anyone who needs to work on the go. Conversely, desktop computers are stationary, limiting their use to a specific location.

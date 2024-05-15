@@ -4,6 +4,7 @@ import './style.css'
 import { Link } from "react-router-dom";
 import { BallTriangle } from "react-loader-spinner";
 import { CreatAuthContext } from "../Firebase/Authprovider";
+import axios from "axios";
 
 const SixProduct = () => {
     const [sixDatas, setSixdatas] = useState([])
@@ -11,10 +12,11 @@ const SixProduct = () => {
     console.log(sixDatas)
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BACEND_URL}/product`)
-            .then(res => res.json())
+        axios.get(`${import.meta.env.VITE_BACEND_URL}/allproduct`)
+            // .then(res => res.json())
             .then(data => {
-                const sortedData = [...data].sort((a, b) => new Date(b.userData.timeAndDate) - new Date(a.userData.timeAndDate));
+                const datas = data.data;
+                const sortedData = [...datas].sort((a, b) => new Date(b.userData.timeAndDate) - new Date(a.userData.timeAndDate));
                 setSixdatas(sortedData);
                 setloder(false)
             })
