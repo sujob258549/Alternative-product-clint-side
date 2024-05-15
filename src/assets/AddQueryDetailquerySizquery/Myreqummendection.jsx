@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import Typewriter from 'typewriter-effect';
 
 const Myreqummendection = () => {
-    const { user } = useContext(CreatAuthContext)
+    const { user  } = useContext(CreatAuthContext)
     const [allrecomended, setAllRecommended] = useState([])
     console.log(allrecomended);
     useEffect(() => {

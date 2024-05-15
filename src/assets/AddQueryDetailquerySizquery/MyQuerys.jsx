@@ -70,11 +70,11 @@ const MyQuerys = () => {
                 <div className="items-center lg:flex">
                     <div className="w-full lg:w-1/2">
                         <div className="lg:max-w-lg">
-                            <h1 data-aos="fade-right" className="text-3xl kurali-font  font-semibold lg:text-4xl">My Add query <br /> your <span className="text-[#16A34A]">Section</span></h1>
+                            <h1 data-aos-duration="1000" data-aos="fade-right" className="text-3xl kurali-font  font-semibold lg:text-4xl">My Add query <br /> your <span className="text-[#16A34A]">Section</span></h1>
 
-                            <p data-aos="fade-down-left" className="mt-3 text-gray-600 md:py-5 dark:text-gray-400">Definitions. The verb whine means to make a high-pitched noise or to complain or beg in a childish way. The noun whine refers to the act of whining or to a complaint uttered in a whining tone. The noun wine refers to the fermented juice of grapes (or other fruits), used as an alcoholic beverage and in cooking.</p>
+                            <p data-aos-duration="1000" data-aos="fade-down-left" className="mt-3 text-gray-600 md:py-5 dark:text-gray-400">Definitions. The verb whine means to make a high-pitched noise or to complain or beg in a childish way. The noun whine refers to the act of whining or to a complaint uttered in a whining tone. The noun wine refers to the fermented juice of grapes (or other fruits), used as an alcoholic beverage and in cooking.</p>
 
-                            <Link to={'/addproduct'} className="mt-5 mb-5 md:mb-0 inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Add Queries </Link>
+                            <Link to={'/addproduct'} data-aos="fade-left" data-aos-duration="1000" className="mt-5 mb-5 md:mb-0 inline-flex items-center justify-center rounded-xl bg-green-600 py-3 px-6 font-dm text-base font-medium text-white shadow-xl shadow-green-400/75 transition-transform duration-200 ease-in-out hover:scale-[1.02]">Add Queries </Link>
                         </div>
                     </div>
 
@@ -85,13 +85,13 @@ const MyQuerys = () => {
             </div>
 
             <div className="pb-10 md:py-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
-                <h1 data-aos="fade-right" className="kurali-font text-3xl md:text-5xl font-bold text-center md:pb-5">My Query/<span className="text-[#16A34A]">product</span></h1>
-                <p data-aos="fade-left" className="text-center text-[18px]">Products are the backbone of modern life, serving a multitude of purposes across various industries and sectors. From everyday essentials like food, clothing, and electronics to specialized tools and equipment used in manufacturing and construction, products play a vital role in meeting human needs and driving economic activity. Whether it.s the latest smartphone, a high-performance automobile, or life-saving medical devices, each product serves a specific function and contributes to enhancing our quality of life. Moreover, advancements in technology continue to revolutionize the way products are designed, produced, and distributed, leading to constant innovation and improvement across different sectors.</p>
+                <h1 data-aos-duration="1000"  data-aos="fade-right" className="kurali-font text-3xl md:text-5xl font-bold text-center md:pb-5">My Query/<span className="text-[#16A34A]">product</span></h1>
+                <p  data-aos-duration="1000" data-aos="fade-left" className="text-center text-[18px]">Products are the backbone of modern life, serving a multitude of purposes across various industries and sectors. From everyday essentials like food, clothing, and electronics to specialized tools and equipment used in manufacturing and construction, products play a vital role in meeting human needs and driving economic activity. Whether it.s the latest smartphone, a high-performance automobile, or life-saving medical devices, each product serves a specific function and contributes to enhancing our quality of life. Moreover, advancements in technology continue to revolutionize the way products are designed, produced, and distributed, leading to constant innovation and improvement across different sectors.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
                     sixDatas.map(product => (
-                        <div key={product._id} data-aos="fade-down" className=' flex flex-col justify-between shadow rounded-lg relative'>
+                        <div key={product._id} data-aos="fade-down" data-aos-duration="1000" className=' flex flex-col justify-between shadow rounded-lg relative'>
                             <div className="p-5">
                                 <img className="h-56 object-contain p-5 w-full " src={product.photourl} alt="" />
                                 <div className='product-info space-y-4 pb-3'>

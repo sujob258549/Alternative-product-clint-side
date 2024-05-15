@@ -37,13 +37,13 @@ const SixProduct = () => {
                 />}
             </div>
             <div className="py-10 md:pb-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
-                <h1 data-aos="fade-down-right" className="kurali-font text-3xl md:text-5xl font-bold text-center"><span className="text-[#16A34A]">Product </span>section</h1>
-                <p data-aos="fade-down-left" className="text-center text-[18px]">Products play a crucial role in our daily lives, serving diverse purposes across different sectors. Consumer goods are essential for personal use, ranging from electronics like smartphones to clothing and household items. Industrial products, on the other hand, are integral to manufacturing and construction processes, including machinery and equipment. Healthcare products, such as medications and medical devices, are vital for maintaining and improving health. Software products enable us to accomplish tasks efficiently and stay connected, while food and beverage products provide nourishment and enjoyment. Automotive products, including vehicles and accessories, facilitate transportation and mobility. Each category of products serves distinct needs, contributing to the functionality and convenience of modern life</p>
+                <h1 data-aos-duration="1000"  data-aos="fade-down-right" className="kurali-font text-3xl md:text-5xl font-bold text-center"><span className="text-[#16A34A]">Product </span>section</h1>
+                <p  data-aos-duration="1000" data-aos="fade-down-left" className="text-center text-[18px]">Products play a crucial role in our daily lives, serving diverse purposes across different sectors. Consumer goods are essential for personal use, ranging from electronics like smartphones to clothing and household items. Industrial products, on the other hand, are integral to manufacturing and construction processes, including machinery and equipment. Healthcare products, such as medications and medical devices, are vital for maintaining and improving health. Software products enable us to accomplish tasks efficiently and stay connected, while food and beverage products provide nourishment and enjoyment. Automotive products, including vehicles and accessories, facilitate transportation and mobility. Each category of products serves distinct needs, contributing to the functionality and convenience of modern life</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
                     sixDatas.slice(0, 6).map(product => (
-                        <div key={product._id} data-aos="fade-left" className=' flex flex-col justify-between shadow rounded-lg relative'>
+                        <div data-aos-duration="1000" key={product._id} data-aos="fade-down" className=' flex flex-col justify-between shadow rounded-lg relative'>
                             <div className="p-5">
                                 <img className="h-56 object-contain p-5 w-full " src={product.photourl} alt="" />
                                 <div className='product-info space-y-4 pb-3'>

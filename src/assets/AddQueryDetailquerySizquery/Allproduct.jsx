@@ -131,7 +131,7 @@ const Allproduct = () => {
             <div className={`grid  md:grid-cols-${gridTogle} gap-10 px-5 md:px-0`}>
                 {
                     sixDatas.map(product => (
-                        <div data-aos="fade-down" data-aos-duration="2000" key={product._id} className=' flex flex-col justify-between shadow rounded-lg relative'>
+                        <div data-aos="fade-down" data-aos-duration="1000"   key={product._id} className=' flex flex-col justify-between shadow rounded-lg relative'>
                             <div className="p-5">
                                 <img className="h-56 object-contain p-5 w-full " src={product.photourl} alt="" />
                                 <div className='product-info space-y-4 pb-3'>

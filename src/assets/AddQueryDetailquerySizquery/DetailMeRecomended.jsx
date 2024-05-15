@@ -10,7 +10,7 @@ const DetailMeRecomended = () => {
     console.log(recommendDetail);
     const [spisifayAllrecommendDetail, setspisifayAllrecommendDetail] = useState([])
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BACEND_URL}/product`)
+        fetch(`${import.meta.env.VITE_BACEND_URL}/allproduct`)
             .then(res => res.json())
             .then(data => {
                 const sortedData = data.filter(d => d.queeryTitle === recommendDetail.previseData.queeryTitle)
