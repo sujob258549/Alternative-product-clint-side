@@ -12,7 +12,8 @@ import { Helmet } from "react-helmet-async";
 const MyQuerys = () => {
     const { loder, setloder, user } = useContext(CreatAuthContext)
     const [sixDatas, setSixdatas] = useState([])
-    console.log(sixDatas)
+    const [click, setclick] = useState(0)
+    console.log(click)
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_BACEND_URL}/product?email=${user.email}`, { withCredentials: true })
@@ -55,7 +56,7 @@ const MyQuerys = () => {
 
     return (
         <div className="pb-10 px-5 md:px-0 md:pb-20 container mx-auto">
-             <Helmet>
+            <Helmet>
                 <title>Altranative product || My Query</title>
             </Helmet>
             <div className="absolute top-[50%] left-[50%]">
@@ -89,8 +90,18 @@ const MyQuerys = () => {
             </div>
 
             <div className="pb-10 md:py-20 w-full md:w-[80%] lg:w-[70%] mx-auto space-y-5">
-                <h1 data-aos-duration="1000"  data-aos="fade-right" className="kurali-font text-3xl md:text-5xl font-bold text-center md:pb-5">My Query/<span className="text-[#16A34A]">product</span></h1>
-                <p  data-aos-duration="1000" data-aos="fade-left" className="text-center text-[18px]">Products are the backbone of modern life, serving a multitude of purposes across various industries and sectors. From everyday essentials like food, clothing, and electronics to specialized tools and equipment used in manufacturing and construction, products play a vital role in meeting human needs and driving economic activity. Whether it.s the latest smartphone, a high-performance automobile, or life-saving medical devices, each product serves a specific function and contributes to enhancing our quality of life. Moreover, advancements in technology continue to revolutionize the way products are designed, produced, and distributed, leading to constant innovation and improvement across different sectors.</p>
+                <h1 data-aos-duration="1000" data-aos="fade-right" className="kurali-font text-3xl md:text-5xl font-bold text-center md:pb-5">My Query/<span className="text-[#16A34A]">product</span></h1>
+                <p data-aos-duration="1000" data-aos="fade-left" className="text-center text-[18px]">Products are the backbone of modern life, serving a multitude of purposes across various industries and sectors. From everyday essentials like food, clothing, and electronics to specialized tools and equipment used in manufacturing and construction, products play a vital role in meeting human needs and driving economic activity. Whether it.s the latest smartphone, a high-performance automobile, or life-saving medical devices, each product serves a specific function and contributes to enhancing our quality of life. Moreover, advancements in technology continue to revolutionize the way products are designed, produced, and distributed, leading to constant innovation and improvement across different sectors.</p>
+            </div>
+            <div>
+
+                <div className="rating">
+                    <input onChange={() => setclick(click + 1)} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                    <input onChange={() => setclick(click + 1)} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                    <input onChange={() => setclick(click + 1)} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                    <input onChange={() => setclick(click + 1)} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                    <input onChange={() => setclick(click + 1)} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {

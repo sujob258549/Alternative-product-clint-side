@@ -83,7 +83,7 @@ const Allproduct = () => {
             <form action="" onSubmit={hendelsurch}>
                 <div className="flex justify-end mt-10">
                     <div className="flex  relative rounded-md w-full px-4 max-w-xl">
-                        <input type="text" name="secrch" id="query" placeholder="Enter product title"
+                        <input type="text" name="secrch" id="query" placeholder="Enter product name"
                             className="w-full p-3 rounded-md border-2 border-r-white rounded-r-none border-gray-300 placeholder-gray-500 dark:placeholder-gray-300 dark:bg-gray-500 dark:text-gray-300 dark:border-none " />
                         <button className="inline-flex items-center gap-2 bg-violet-700 text-white text-lg font-semibold py-3 px-6 rounded-r-md">
                             <span>search</span>

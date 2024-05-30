@@ -50,7 +50,7 @@ const Header = () => {
 
     </>
     return (
-        <div className="container mx-auto py-5">
+        <div id="header" className="container mx-auto py-5">
             <div className="navbar bg-base-100  ">
                 <div className="navbar-start">
                     <div className="dropdown">

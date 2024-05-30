@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@alptugidin/react-circular-progress-bar": "^1.1.2",
+    "@smastrom/react-rating": "^1.5.0",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
     "firebase": "^10.11.1",
@@ -17,6 +19,7 @@
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",

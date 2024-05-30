@@ -71,7 +71,7 @@ const Recommend = () => {
     }
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BACEND_URL}/recommendation`)
+        fetch(`${import.meta.env.VITE_BACEND_URL}/recommendationme`)
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.previseData.queeryTitle === recommendData.queeryTitle);

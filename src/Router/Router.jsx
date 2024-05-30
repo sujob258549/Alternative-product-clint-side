@@ -100,6 +100,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><MyQuerys></MyQuerys></PrivateRoute>
 
             }
+           
         ]
 
     }
